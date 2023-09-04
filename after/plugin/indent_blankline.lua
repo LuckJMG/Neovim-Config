@@ -4,5 +4,3 @@ require("indent_blankline").setup {
     show_current_context_start = true,
 }
 
-vim.cmd[[highlight IndentBlanklineChar guifg=#44475A gui=nocombine]]
-vim.cmd[[highlight IndentBlanklineContextChar guifg=#6272A4 gui=nocombine]]

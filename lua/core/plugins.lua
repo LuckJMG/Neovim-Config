@@ -21,7 +21,6 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate"
 	},
-	'Mofiqul/dracula.nvim',
 	{
  		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
@@ -47,6 +46,7 @@ local plugins = {
         event = "InsertEnter",
         opts = {} -- this is equalent to setup({}) function
     },
+    "dracula/vim"
 }
 
 local opts = {}
