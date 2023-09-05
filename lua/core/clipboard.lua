@@ -12,5 +12,4 @@ vim.g.clipboard = {
 }
 
 vim.keymap.set("v", "<C-y>", '"*y')
-vim.keymap.set("v", "<C-y>", '"*y')
 vim.keymap.set("n", "<C-p>", '"*p')
