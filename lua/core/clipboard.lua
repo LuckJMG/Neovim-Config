@@ -11,5 +11,6 @@ vim.g.clipboard = {
     cache_enabled = 0,
 }
 
-vim.keymap.set("n", "<leader><C-v>", '"*p')
-vim.keymap.set("v", "<leader><C-c>", '"*y')
+vim.keymap.set("v", "<C-y>", '"*y')
+vim.keymap.set("v", "<C-y>", '"*y')
+vim.keymap.set("n", "<C-p>", '"*p')
