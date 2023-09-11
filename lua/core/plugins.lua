@@ -46,7 +46,8 @@ local plugins = {
         opts = {} -- this is equalent to setup({}) function
     },
     'dracula/vim',
-    'ThePrimeagen/vim-be-good'
+    'ThePrimeagen/vim-be-good',
+    'mfussenegger/nvim-lint'
 }
 
 local opts = {}
