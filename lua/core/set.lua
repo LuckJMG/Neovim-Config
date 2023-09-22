@@ -15,7 +15,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 5
-vim.opt.colorcolumn = "81"
+vim.opt.colorcolumn = "80"
 
 vim.opt.updatetime = 50
 vim.opt.showmode = false

@@ -11,6 +11,10 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
+require 'lspconfig'.bashls.setup {
+  filetypes = { 'zsh', 'bash', 'sh' },
+}
+
 -- Make sure you setup `cmp` after lsp-zero
 
 local cmp = require('cmp')
