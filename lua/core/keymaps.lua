@@ -1,3 +1,9 @@
+vim.g.mapleader = " "
+
+-- Navigation
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- Clipboard
 vim.g.clipboard = {
     name = "WslClipboard",
     copy = {
@@ -13,3 +19,4 @@ vim.g.clipboard = {
 
 vim.keymap.set("v", "<C-y>", '"*y')
 vim.keymap.set("n", "<C-p>", '"*p')
+

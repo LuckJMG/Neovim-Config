@@ -14,11 +14,4 @@ Then initialize nvim and wait for lazy.nvim to install the plugins.
 
 ## Plugins
 
-- [lazy.nvim](https://github.com/folke/lazy.nvim)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Dracula for Vim](https://github.com/dracula/vim)
-- [LSP Zero](https://github.com/VonHeikemen/lsp-zero.nvim)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-
+TODO LIST PLUGINS

@@ -1,0 +1,11 @@
+{
+  "Lua": {
+    "diagnostics.disable": {
+      "default": [],
+      "enum":[
+        "missing-fields",
+      ]
+    },
+    "workspace.checkThirdParty": false
+  }
+}
