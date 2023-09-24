@@ -11,6 +11,9 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 5
+vim.opt.colorcolumn = "81"
+vim.opt.list = true
+vim.opt.listchars:append "tab:| ,leadmultispace:⋅,trail:⋅"
 
 -- Theme (dracula always)
 require("dracula").setup({
@@ -19,6 +22,9 @@ require("dracula").setup({
 })
 
 vim.cmd [[colorscheme dracula]]
+vim.cmd [[highlight whitespace guifg=#3B4048 gui=nocombine]]
+vim.cmd [[highlight cursorline guibg=#21222C gui=nocombine]]
+vim.cmd [[highlight colorcolumn guibg=#191A21 gui=nocombine]]
 
 -- Treesitter
 require('nvim-treesitter.configs').setup {
@@ -40,8 +46,14 @@ require('nvim-treesitter.configs').setup {
 require('lualine').setup({})
 
 -- Indent Blankline
-require("indent_blankline").setup({
-    show_current_context = true,
-    show_current_context_start = true,
-})
+require("indent_blankline").setup {
+	show_current_context = true,
+	show_current_context_start = true,
+}
+
+vim.cmd [[highlight IndentBlankLineChar guifg=#3B4048 gui=nocombine]]
+vim.cmd [[highlight IndentBlankLineSpaceChar guifg=#3B4048 gui=nocombine]]
+vim.cmd [[highlight IndentBlankLineSpaceCharBlankLine guifg=#3B4048 gui=nocombine]]
+vim.cmd [[highlight IndentBlankLineContextChar guifg=#F8F8F2 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineContextSpaceChar guifg=#F8F8F2 gui=nocombine]]
 

@@ -1,5 +1,6 @@
---# selene: allow(undefined_variable)
---# selene: allow(unscoped_variables)
+-- General Settings
+vim.opt.fixeol = true
+
 -- Identation (always tab 4)
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -9,7 +10,9 @@ vim.opt.autoindent = true
 
 -- Linter
 require('lint').linters_by_ft = {
-	lua = {'selene',}
+	cpp = { 'cpplint' },
+	python = { 'pylint' },
+	bash = { 'shellcheck' },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
