@@ -1,3 +1,8 @@
+-- General Settings
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.shortmess = vim.opt.shortmess + { c = true}
+vim.api.nvim_set_option('updatetime', 300)
+
 -- CMP config
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -44,7 +49,10 @@ cmp.setup({
 	}),
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lsp_signature_help' },
+		{ name = 'nvim_lua' },
 		{ name = 'luasnip' },
+		{ name = 'path' },
 	}, {
 		{ name = 'buffer' },
 	}),
