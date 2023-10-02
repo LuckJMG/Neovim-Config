@@ -21,7 +21,6 @@ Then initialize nvim and wait for lazy.nvim to install the plugins.
 - [Dracula Theme](https://github.com/Mofiqul/dracula.nvim)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.nvim)
 - [nvim-lualine](https://github.com/nvim-lualine/lualien.nvim)
-- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 
 #### Icons
 

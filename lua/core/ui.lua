@@ -43,17 +43,5 @@ require('nvim-treesitter.configs').setup {
 }
 
 -- Lualine
-require('lualine').setup({})
-
--- Indent Blankline
-require("indent_blankline").setup {
-	show_current_context = true,
-	show_current_context_start = true,
-}
-
-vim.cmd [[highlight IndentBlankLineChar guifg=#3B4048 gui=nocombine]]
-vim.cmd [[highlight IndentBlankLineSpaceChar guifg=#3B4048 gui=nocombine]]
-vim.cmd [[highlight IndentBlankLineSpaceCharBlankLine guifg=#3B4048 gui=nocombine]]
-vim.cmd [[highlight IndentBlankLineContextChar guifg=#F8F8F2 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineContextSpaceChar guifg=#F8F8F2 gui=nocombine]]
+require('lualine').setup()
 
