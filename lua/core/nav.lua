@@ -13,11 +13,8 @@ local ui = require('harpoon.ui')
 
 vim.keymap.set('n', '<leader>m', mark.add_file)
 vim.keymap.set('n', '<leader>pm', ui.toggle_quick_menu)
-
-vim.keymap.set('n', '<A-h>', function() ui.nav_file(1) end)
-vim.keymap.set('n', '<A-j>', function() ui.nav_file(2) end)
-vim.keymap.set('n', '<A-k>', function() ui.nav_file(3) end)
-vim.keymap.set('n', '<A-l>', function() ui.nav_file(4) end)
+vim.keymap.set('n', '<A-n>', function() ui.nav_next() end)
+vim.keymap.set('n', '<A-p>', function() ui.nav_prev() end)
 
 -- Undo
 vim.opt.undofile = true
