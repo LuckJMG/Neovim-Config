@@ -15,6 +15,9 @@ vim.opt.colorcolumn = "81"
 vim.opt.list = true
 vim.opt.listchars:append "tab:| ,leadmultispace:⋅,trail:⋅"
 
+--- Netrw
+vim.cmd [[let g:netrw_banner = 0]]
+
 -- Theme (dracula always)
 require("dracula").setup({
 	show_end_of_buffer = true,
