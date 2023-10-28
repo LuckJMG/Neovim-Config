@@ -4,3 +4,6 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>pg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 
+-- tmux integration
+vim.cmd [[ noremap <silent> {ctrl-l} :<C-U>TmuxNavigateRight<cr> ]]
+
