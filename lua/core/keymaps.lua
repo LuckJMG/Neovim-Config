@@ -1,22 +1,27 @@
-vim.g.mapleader = " "
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
--- Navigation
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- Disable keymaps
+vim.cmd('map q <Nop>')
+vim.cmd('nmap <F1> <Nop>')
 
 -- Clipboard
-vim.g.clipboard = {
-    name = "WslClipboard",
-    copy = {
-        ["+"] = 'clip.exe',
-        ["*"] = 'clip.exe',
-    },
-    paste = {
-        ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-        ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    },
-    cache_enabled = 0,
-}
+vim.keymap.set("v", "<C-C>", '"*y')
+vim.keymap.set("n", "<C-V>", '"*p')
 
-vim.keymap.set("v", "<C-y>", '"*y')
-vim.keymap.set("n", "<C-p>", '"*p')
+-- LSP
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+	callback = function(event)
+		local opts = { buffer = event.buf }
+
+		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+		vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+		vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+		vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+
+		vim.keymap.set('n', '<leader>id', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+		vim.keymap.set('n', '<leader>in', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+		vim.keymap.set('n', '<leader>ip', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+	end
+})
 
