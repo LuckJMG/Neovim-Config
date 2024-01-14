@@ -5,6 +5,7 @@ vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.hlsearch = false
 vim.opt.fixeol = true
+vim.cmd('set mouse=')
 
 -- Lines
 vim.opt.signcolumn = 'yes'
