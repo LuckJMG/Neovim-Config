@@ -1,11 +1,16 @@
 vim.g.mapleader = ' '
+vim.opt.mouse = ''
+vim.api.nvim_set_option('updatetime', 300)
 
--- General Settings
+-- UI
 vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.hlsearch = false
+vim.cmd('let g:netrw_banner = 0')
+
+-- File
 vim.opt.fixeol = true
-vim.cmd('set mouse=')
+vim.opt.undofile = true
 
 -- Lines
 vim.opt.signcolumn = 'yes'
@@ -19,12 +24,6 @@ vim.opt.colorcolumn = "81"
 vim.opt.list = true
 vim.opt.listchars:append "tab:| ,leadmultispace:|   ,trail:⋅"
 
--- Netrw
-vim.cmd('let g:netrw_banner = 0')
-
--- Undo
-vim.opt.undofile = true
-
 -- Identation (always tab 4)
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -33,9 +32,8 @@ vim.opt.expandtab = false
 vim.opt.autoindent = true
 
 -- Completion
-vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
-vim.opt.shortmess = vim.opt.shortmess + { c = true}
-vim.api.nvim_set_option('updatetime', 300)
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- Clipboard
 vim.g.clipboard = {
