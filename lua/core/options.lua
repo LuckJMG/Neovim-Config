@@ -19,7 +19,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.wrap = false
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "81"
 vim.opt.list = true
 vim.opt.listchars:append "tab:| ,leadmultispace:|   ,trail:⋅"
