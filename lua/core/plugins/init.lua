@@ -33,5 +33,9 @@ return {
 		event = "InsertEnter",
 		opts = {}
 	},
-	{ 'nvim-treesitter/nvim-treesitter-context' }
+	{ 'nvim-treesitter/nvim-treesitter-context' },
+	{
+		'windwp/nvim-ts-autotag',
+		opts = {}
+	}
 }

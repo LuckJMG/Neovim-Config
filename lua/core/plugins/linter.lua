@@ -5,6 +5,8 @@ return {
 		linter.linters_by_ft = {
 			python = { 'pylint' },
 			bash = { 'shellcheck' },
+			javascript = { 'oxlint' },
+			typescript = { 'oxlint' },
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
