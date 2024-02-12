@@ -45,6 +45,7 @@ table.insert(lsp, {
 		require('lspconfig').rust_analyzer.setup({ capabilities = capabilities })
 		require('lspconfig').clangd.setup({ capabilities = capabilities })
 		require('lspconfig').pyright.setup({ capabilities = capabilities })
+		require('lspconfig').marksman.setup({ capabilities = capabilities })
 
 		-- WebDev
 		require('lspconfig').html.setup({ capabilities = capabilities })

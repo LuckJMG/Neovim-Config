@@ -7,6 +7,7 @@ return {
 			bash = { 'shellcheck' },
 			javascript = { 'oxlint' },
 			typescript = { 'oxlint' },
+			markdown = { 'markdownlint' }
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
