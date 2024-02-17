@@ -5,8 +5,8 @@ return {
 		linter.linters_by_ft = {
 			python = { 'pylint' },
 			bash = { 'shellcheck' },
-			javascript = { 'oxlint' },
-			typescript = { 'oxlint' },
+			javascript = { 'standardjs' },
+			typescript = { 'standardjs' },
 			markdown = { 'markdownlint' }
 		}
 
