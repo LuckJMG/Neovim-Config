@@ -1,4 +1,5 @@
 vim.opt.wrap = true
+vim.opt.linebreak = true
 vim.opt.colorcolumn = ""
 
 -- Move in visual lines
