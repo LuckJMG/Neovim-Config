@@ -1,21 +1,19 @@
 return {
 	{
-		'Mofiqul/dracula.nvim',
+		"neanias/everforest-nvim",
+		version = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require('dracula').setup({ show_end_of_buffer = true })
-			vim.cmd('colorscheme dracula')
-			vim.cmd('highlight whitespace guifg=#3B4048 gui=nocombine')
-			vim.cmd('highlight cursorline guibg=#21222C gui=nocombine')
-			vim.cmd('highlight colorcolumn guibg=#191A21 gui=nocombine')
+			require("everforest").setup({})
+			require("everforest").load()
 		end,
 	},
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		opts = {
-			theme = 'dracula-nvim',
+			theme = 'everforest',
 		},
 	},
 	{
