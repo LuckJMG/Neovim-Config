@@ -14,6 +14,8 @@ return {
 		local cmp = require('cmp')
 		local format = require('lspkind').cmp_format({
 			mode = 'symbol',
+			max_width = 50,
+			ellipsis_char = '...',
 			menu = {}
 		})
 
@@ -29,17 +31,22 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				['<CR>'] = cmp.mapping.confirm({select = false}),
 				['<C-Space>'] = cmp.mapping.complete(),
-				['<Tab>'] = cmp.mapping.select_next_item(),
+				['<Tab>'] = cmp.mapping(function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					else
+						fallback()
+					end
+				end, { 'i', 's' }),
 				['<S-Tab>'] = cmp.mapping.select_prev_item(),
 			}),
 			sources = cmp.config.sources({
-				{ name = 'nvim_lsp' },
-				{ name = 'nvim_lsp_signature_help' },
-				{ name = 'nvim_lua' },
-				{ name = 'luasnip' },
-				{ name = 'path' },
+				{ name = 'nvim_lsp', priority = 1000 },
+				{ name = 'luasnip', priority = 750 },
+				{ name = 'nvim_lsp_signature_help', priority = 500 },
+				{ name = 'path', priority = 250 },
 			}, {
-				{ name = 'buffer' },
+				{ name = 'buffer', keyword_length = 3 },
 			}),
 			formatting = {
 				format = format,
@@ -69,6 +76,12 @@ return {
 				format = format,
 			},
 		})
+
+		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+		cmp.event:on(
+			'confirm_done',
+			cmp_autopairs.on_confirm_done()
+		)
 	end,
 }
 

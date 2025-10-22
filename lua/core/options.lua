@@ -1,12 +1,13 @@
 vim.g.mapleader = ' '
 vim.opt.mouse = ''
-vim.api.nvim_set_option('updatetime', 300)
+vim.opt.updatetime = 300
+vim.opt.incsearch = true
 
 -- UI
 vim.opt.termguicolors = true
 vim.opt.showmode = false
 vim.opt.hlsearch = false
-vim.cmd('let g:netrw_banner = 0')
+vim.g.netrw_banner = 0
 
 -- File
 vim.opt.fixeol = true
@@ -37,15 +38,15 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- Clipboard
 vim.g.clipboard = {
-    name = "WslClipboard",
+    name = "xclip",
     copy = {
-        ["+"] = 'clip.exe',
-        ["*"] = 'clip.exe',
+        ["+"] = 'xclip -selection clipboard',
+        ["*"] = 'xclip -selection primary',
     },
     paste = {
-        ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-        ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        ["+"] = 'xclip -selection clipboard -o',
+        ["*"] = 'xclip -selection primary -o',
     },
-    cache_enabled = 0,
+    cache_enabled = 1,
 }
 

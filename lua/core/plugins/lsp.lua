@@ -1,6 +1,10 @@
 local lsp = {}
 
-local lua_lsp = {
+-- Configuración de lua_ls
+vim.lsp.config('lua_ls', {
+	cmd = { 'lua-language-server' },
+	filetypes = { 'lua' },
+	root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.git' },
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 	settings = {
 		Lua = {
@@ -8,19 +12,26 @@ local lua_lsp = {
 				version = 'LuaJIT',
 			},
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = {'vim'},
 			},
 			workspace = {
-				-- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
 			},
 			telemetry = {
 				enable = false,
 			},
 		},
 	},
-}
+})
+
+vim.lsp.config('bashls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('gopls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
 table.insert(lsp, {
 	'williamboman/mason-lspconfig.nvim',
@@ -39,19 +50,7 @@ table.insert(lsp, {
 	lazy = false,
 	priority = 80,
 	config = function()
-		local capabilities = require('cmp_nvim_lsp').default_capabilities()
-		require('lspconfig').lua_ls.setup(lua_lsp)
-		require('lspconfig').bashls.setup({ capabilities = capabilities })
-		require('lspconfig').clangd.setup({ capabilities = capabilities })
-		require('lspconfig').pyright.setup({ capabilities = capabilities })
-		require('lspconfig').gopls.setup({ capabilities = capabilities })
-
-		-- WebDev
-		require('lspconfig').html.setup({ capabilities = capabilities })
-		require('lspconfig').cssls.setup({ capabilities = capabilities })
-		require('lspconfig').denols.setup({ capabilities = capabilities })
-		require('lspconfig').svelte.setup({ capabilities = capabilities })
-		require('lspconfig').intelephense.setup({ capabilities = capabilities })
+		vim.lsp.enable({'lua_ls', 'bashls', 'gopls'})
 	end,
 })
 

@@ -1,19 +1,18 @@
 return {
 	{
-		"neanias/everforest-nvim",
+		"Mofiqul/dracula.nvim",
 		version = false,
 		lazy = false,
 		priority = 1000,
-		config = function()
-			require("everforest").setup({})
-			require("everforest").load()
-		end,
+		config = function ()
+			vim.cmd.colorscheme('dracula')
+		end
 	},
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		opts = {
-			theme = 'everforest',
+			theme = 'dracula-nvim',
 		},
 	},
 	{
@@ -31,9 +30,13 @@ return {
 		event = "InsertEnter",
 		opts = {}
 	},
-	{ 'nvim-treesitter/nvim-treesitter-context' },
+	{
+		'nvim-treesitter/nvim-treesitter-context',
+		dependencies = { 'nvim-treesitter/nvim-treesitter' }
+	},
 	{
 		'windwp/nvim-ts-autotag',
+		dependencies = { 'nvim-treesitter/nvim-treesitter' },
 		opts = {}
 	}
 }

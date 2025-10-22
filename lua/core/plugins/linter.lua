@@ -4,7 +4,7 @@ return {
 		local linter = require('lint')
 		linter.linters_by_ft = {}
 
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
 			callback = function()
 				linter.try_lint()
 			end,
