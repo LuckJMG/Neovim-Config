@@ -37,16 +37,31 @@ vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- Clipboard
-vim.g.clipboard = {
-    name = "xclip",
-    copy = {
-        ["+"] = 'xclip -selection clipboard',
-        ["*"] = 'xclip -selection primary',
-    },
-    paste = {
-        ["+"] = 'xclip -selection clipboard -o',
-        ["*"] = 'xclip -selection primary -o',
-    },
-    cache_enabled = 1,
-}
+if vim.fn.has('wsl') == 1 then
+	vim.g.clipboard = {
+		name = 'WslClipboard',
+		copy = {
+			['+'] = 'clip.exe',
+			['*'] = 'clip.exe',
+		},
+		paste = {
+			['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+else
+	vim.g.clipboard = {
+		name = 'xclip',
+		copy = {
+			['+'] = 'xclip -selection clipboard',
+			['*'] = 'xclip -selection primary',
+		},
+		paste = {
+			['+'] = 'xclip -selection clipboard -o',
+			['*'] = 'xclip -selection primary -o',
+		},
+		cache_enabled = 1,
+	}
+end
 
