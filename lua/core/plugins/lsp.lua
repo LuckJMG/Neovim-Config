@@ -33,6 +33,10 @@ vim.lsp.config('gopls', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
+vim.lsp.config('basedpyright', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
 table.insert(lsp, {
 	'williamboman/mason-lspconfig.nvim',
 	dependencies = {
