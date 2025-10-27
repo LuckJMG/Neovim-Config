@@ -3,7 +3,9 @@ return {
 	config = function()
 		local linter = require('lint')
 		linter.linters_by_ft = {
-			python = { 'ruff' }
+			python = { 'ruff' },
+			sh = { 'shellcheck' },
+			bash = { 'shellcheck' }
 		}
 
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
