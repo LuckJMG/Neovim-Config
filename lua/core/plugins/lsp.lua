@@ -37,6 +37,14 @@ vim.lsp.config('basedpyright', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
+vim.lsp.config('clangd', {
+	capabilities = vim.tbl_deep_extend(
+		'force',
+		require('cmp_nvim_lsp').default_capabilities(),
+		{ offsetEncoding = { "utf-16" } }  -- evita el error de encoding
+	),
+})
+
 -- WebDev
 vim.lsp.config('ts_ls', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
