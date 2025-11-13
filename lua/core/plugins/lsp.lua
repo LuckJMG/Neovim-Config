@@ -37,6 +37,33 @@ vim.lsp.config('basedpyright', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
+-- WebDev
+vim.lsp.config('ts_ls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+	filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+})
+
+vim.lsp.config('tailwindcss', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('html', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('cssls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+-- Docker
+vim.lsp.config('dockerls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('docker_compose_language_service', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
 table.insert(lsp, {
 	'williamboman/mason-lspconfig.nvim',
 	dependencies = {
@@ -53,9 +80,6 @@ table.insert(lsp, {
 	'neovim/nvim-lspconfig',
 	lazy = false,
 	priority = 80,
-	config = function()
-		vim.lsp.enable({'lua_ls', 'bashls', 'gopls'})
-	end,
 })
 
 return lsp
