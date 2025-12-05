@@ -41,7 +41,7 @@ vim.lsp.config('clangd', {
 	capabilities = vim.tbl_deep_extend(
 		'force',
 		require('cmp_nvim_lsp').default_capabilities(),
-		{ offsetEncoding = { "utf-16" } }  -- evita el error de encoding
+		{ offsetEncoding = { "utf-16" } }
 	),
 })
 
@@ -53,6 +53,7 @@ vim.lsp.config('ts_ls', {
 
 vim.lsp.config('tailwindcss', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+	filetypes = { "svelte", "html", "css", "javascript", "typescript" }
 })
 
 vim.lsp.config('html', {
@@ -60,6 +61,14 @@ vim.lsp.config('html', {
 })
 
 vim.lsp.config('cssls', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('svelte', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+
+vim.lsp.config('sqlls', {
 	capabilities = require('cmp_nvim_lsp').default_capabilities(),
 })
 
