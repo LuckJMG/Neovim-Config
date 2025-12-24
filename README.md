@@ -148,11 +148,10 @@ Configuration file in `lua/plugins/ui.lua`.
 - [mini.icons](https://github.com/nvim-mini/mini.icons) for consistent icons.
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) for a modern status line.
 - [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
-- [which-key](https://github.com/folke/which-key.nvim) in case I forgot some keymap.
 
 ## TODOs
 - Investigate [nvim-mini](https://github.com/nvim-mini/mini.nvim) plugins and see how many of my currents plugins can be replaced by more minimalist plugins from mini.
-- Standarize keymaps to use the common keymap language of vim motions.
+- Make harpooned files appear as tabs.
 
 ## Thanks
 To all the developers from neovim and its plugins to make this possible.
