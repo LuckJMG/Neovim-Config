@@ -25,12 +25,12 @@ return {
 		cmd = { "ConformInfo" },
 		keys = {
 			{
-				"<leader>f",
+				"<leader>cf",
 				function()
 					require("conform").format({ async = true })
 				end,
 				mode = "",
-				desc = "Format buffer",
+				desc = "Code Format",
 			},
 		},
 		---@module "conform"
@@ -62,7 +62,7 @@ return {
 		},
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Go to Git" },
 		},
 	},
 }

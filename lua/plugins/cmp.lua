@@ -57,10 +57,7 @@ return {
 				ghost_text = { enabled = true },
 			},
 		},
-		keymap = {
-			preset = "enter",
-			["<C-y>"] = { "select_and_accept" },
-		},
+		keymap = { preset = "default" },
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 }

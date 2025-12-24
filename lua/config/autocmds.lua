@@ -64,27 +64,27 @@ autocmd("LspAttach", {
 		end
 
 		-- Navegation
-		map("gd", vim.lsp.buf.definition, "Go to Definition")
-		map("gD", vim.lsp.buf.declaration, "Go to Declaration")
-		map("gr", vim.lsp.buf.references, "Go to References")
-		map("gI", vim.lsp.buf.implementation, "Go to Implementation")
+		map("<leader>cd", vim.lsp.buf.definition, "Code Definition")
+		map("<leader>cD", vim.lsp.buf.declaration, "Code Declaration")
+		map("<leader>cR", vim.lsp.buf.references, "Code References")
+		map("<leader>cI", vim.lsp.buf.implementation, "Code Implementation")
 
 		-- Information and Help
-		map("<leader>k", vim.lsp.buf.hover, "Hover Documentation")
-		map("<leader>K", vim.lsp.buf.signature_help, "Signature Help")
+		map("K", vim.lsp.buf.hover, "Know Documentation")
+		map("<leader>k", vim.lsp.buf.signature_help, "Know Signature")
 
 		-- Actions
 		map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-		map("<F2>", vim.lsp.buf.rename, "Rename Symbol")
+		map("<leader>cr", vim.lsp.buf.rename, "Code Rename")
 
 		-- Diagnostics
-		map("<leader>di", vim.diagnostic.open_float, "Show Line Diagnostics")
-		map("<leader>dn", function()
+		map("<leader>xx", vim.diagnostic.open_float, "Fix Diagnostic")
+		map("<leader>xn", function()
 			vim.diagnostic.jump({ count = 1 })
-		end, "Next Diagnostic")
-		map("<leader>dp", function()
+		end, "Fix Next Diagnostic")
+		map("<leader>xN", function()
 			vim.diagnostic.jump({ count = -1 })
-		end, "Prev Diagnostic")
+		end, "Fix Prev Diagnostic")
 	end,
 })
 

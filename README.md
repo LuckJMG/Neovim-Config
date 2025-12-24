@@ -1,5 +1,5 @@
 # Neovim Config
-Personal configuration for neovim, inspired by the [LazyVim](https://www.lazyvim.org/) configuration, but a lot more minimalist.
+Personal configuration for neovim, started with [Vim As Your Editor](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) by ThePrimeagen and branched forward.
 
 ## Requirements
 - [Neovim](https://neovim.io/) >= 0.11
@@ -18,6 +18,7 @@ git clone https://github.com/LuckJMG/Neovim-Config.git ~/.config/nvim
 Then initialize nvim and wait for lazy.nvim to install the plugins.
 
 ## Structure
+Inspired by the [LazyVim](https://www.lazyvim.org/) structure.
 - `init.lua`: entry point of the configuration
 - `lua/config/`: neovim lua config files
 - `lua/config/options.lua`: neovim base configuration
@@ -29,60 +30,81 @@ Then initialize nvim and wait for lazy.nvim to install the plugins.
 ## Key Mappings
 Leader key: `<Space>`
 
-### Navigation & Scrolling
-- `H`: Go to start of line
-- `L`: Go to end of line
-- `<C-u>`: Centered up scroll
-- `<C-d>`: Centered down scroll
-- `n`: Centered next search result
-- `N`: Centered previous search result
+Keymaps intend to follow the Vim grammar, inspired by the talk [Mastering the Vim Language](https://www.youtube.com/watch?v=wlR5gYd6um0) by Chris Toomey.
 
-### File Navigation
-- `<leader>v`: Open project view (Oil.nvim)
-- `<leader><space>`: Find files (Telescope)
-- `<leader>/`: Live grep (Telescope)
+### Grammar (Verb + Object)
+The configuration follows a semantic structure to aid muscle memory.
+
+**Verbs:**
+- **c** (Code): LSP and code actions.
+- **x** (Fix): Diagnostics and errors.
+- **g** (Go): Navigation to views or tools.
+- **f** (Find): Find files.
+- **s** (Search): Search text.
+- **m** (Mark): Mark buffers.
+- **l** (List): List objects.
+
+**Objects:**
+- **p** (Project): Entire project.
+- **g** (Git): Git management.
+- **b** (Buffer): Entire file.
+
+### Code & LSP (`c`)
+Intelligent actions on the code.
+
+- `<leader>cd`: **C**ode **D**efinition (Go to definition)
+- `<leader>cD`: **C**ode **D**eclaration (Go to declaration)
+- `<leader>cR`: **C**ode **R**eferences (Show references)
+- `<leader>cI`: **C**ode **I**mplementation (Show implementation)
+- `<leader>ca`: **C**ode **A**ction (Show code actions)
+- `<leader>cr`: **C**ode **R**ename (Rename symbol)
+- `<leader>cf`: **C**ode **F**ormat (Format file)
+
+### Knowledge (`k`)
+Documentation and passive information.
+
+- `K`: **K**now Documentation (Hover docs)
+- `<leader>k`: **K**now Signature (Signature help)
+
+### Fix / Diagnostics (`x`)
+Error and warning management.
+
+- `<leader>xx`: **F**ix Diagnostic (Show float diagnostic)
+- `<leader>xn`: **F**ix **N**ext (Next diagnostic)
+- `<leader>xN`: **F**ix **P**rev (Previous diagnostic)
+
+### Navigation & Tools
+Movement between projects and files.
+
+- `<leader>gp`: **G**o **P**roject (File explorer / Oil)
+- `<leader>gg`: **G**o **G**it (LazyGit)
+- `<leader>fp`: **F**ind **P**roject (Find files)
+- `<leader>sp`: **S**earch **P**roject (Search text / Grep)
 
 ### Harpoon
-- `<leader>H`: Harpoon file (Add to list)
-- `<leader>h`: Toggle Harpoon quick menu
-- `<leader>n`: Harpoon to next file
-- `<leader>p`: Harpoon to prev file
-- `<leader>1-9`: Select Harpoon file 1-9
+Quick navigation between frequent files.
 
-### LSP & Coding
-- `gd`: Go to Definition
-- `gD`: Go to Declaration
-- `gr`: Go to References
-- `gI`: Go to Implementation
-- `<leader>k`: Hover Documentation
-- `<leader>K`: Signature Help
-- `<leader>ca`: Code Action
-- `<F2>`: Rename Symbol
-- `<leader>f`: Format buffer
-- `<leader>di`: Show Line Diagnostics
-- `<leader>dn`: Next Diagnostic
-- `<leader>dp`: Previous Diagnostic
+- `<leader>mb`: **M**ark **B**uffer (Add file)
+- `<leader>lb`: **L**ist **B**uffers (Quick menu)
+- `<leader>1-9`: Go to file 1-9
+- `<C-n>`: Harpoon Next (Fast cycle)
+- `<C-p>`: Harpoon Prev (Fast cycle)
 
-### Editing & Selection
-- `<` / `>`: Indent left/right maintaining selection (Visual)
-- `K`: Move block up (Visual)
-- `J`: Move block down (Visual)
+### Basic Movement & Edit
+Quality of life improvements.
+- `H`: Go to start of line (`^`)
+- `L`: Go to end of line (`$`)
+- `<C-u>` / `<C-d>`: Centered up/down scroll
+- `n` / `N`: Next/Previous search result (centered)
+- `<` / `>`: Indent left/right maintaining selection
 - `U`: Redo
+- `<C-s>`: Save file
+- `<Esc>`: Clear search highlight (`nohlsearch`)
 
 ### Clipboard
-- `<leader>y`: Copy to system clipboard (`+`)
-- `<leader>Y`: Copy line to system clipboard (`+`)
-- `<leader>P`: Paste from system clipboard
-- `<C-v>`: Paste from system clipboard (Insert/Command)
-- `<leader>ya`: Copy entire file as markdown block
-
-### Git
-- `<leader>g`: Open LazyGit
-
-### System & Utilities
-- `<C-s>`: Save file
-- `<Esc>`: Clear highlight search
-- `<leader>?`: Show Buffer Local Keymaps (Which-key)
+System clipboard interaction.
+- `<leader>y`: Copy to system clipboard (`"+y`)
+- `<leader>p`: Paste from system clipboard (`"+p`)
 
 ## Plugins
 ### Auto-completion

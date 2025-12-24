@@ -7,7 +7,7 @@ return {
 		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		lazy = false,
 		keys = {
-			{ "<leader>v", "<cmd>Oil<cr>", desc = "Open project view" },
+			{ "<leader>gp", "<cmd>Oil<cr>", desc = "Go to Project" },
 		},
 	},
 	{
@@ -18,8 +18,8 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		keys = {
-			{ "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
-			{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+			{ "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find Project files" },
+			{ "<leader>sp", "<cmd>Telescope live_grep<cr>", desc = "Search Project strings" },
 		},
 		opts = {
 			defaults = {
@@ -46,29 +46,29 @@ return {
 		keys = function()
 			local keys = {
 				{
-					"<leader>H",
+					"<leader>mb",
 					function()
 						require("harpoon"):list():add()
 					end,
-					desc = "Harpoon file",
+					desc = "Mark Buffer",
 				},
 				{
-					"<leader>h",
+					"<leader>lb",
 					function()
 						local harpoon = require("harpoon")
 						harpoon.ui:toggle_quick_menu(harpoon:list())
 					end,
-					desc = "Harpoon quick menu",
+					desc = "List Buffers",
 				},
 				{
-					"<leader>n",
+					"<C-n>",
 					function()
 						require("harpoon"):list():next()
 					end,
 					desc = "Harpoon to next file",
 				},
 				{
-					"<leader>p",
+					"<C-p>",
 					function()
 						require("harpoon"):list():prev()
 					end,

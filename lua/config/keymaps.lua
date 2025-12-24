@@ -1,8 +1,10 @@
 local map = vim.keymap.set
 
--- Line
-map({ "n", "x" }, "H", "^", { desc = "Go to start of line" })
-map({ "n", "x" }, "L", "$", { desc = "Go to end of line" })
+-- Movement
+map({ "n", "x" }, "k", "gk", { desc = "Visual up" })
+map({ "n", "x" }, "j", "gj", { desc = "Visual down" })
+map({ "n", "x", "o" }, "H", "^", { desc = "Go to start of line" })
+map({ "n", "x", "o" }, "L", "$", { desc = "Go to end of line" })
 
 -- Scroll
 map("n", "<C-u>", "<C-u>zz", { desc = "Centered up scroll" })
@@ -13,16 +15,11 @@ map("n", "N", "Nzzzv", { desc = "Centered previous result" })
 -- Selection
 map("x", "<", "<gv", { desc = "Indent left maintaining selection" })
 map("x", ">", ">gv", { desc = "Indent right maintaining selection" })
-map("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move block up" })
-map("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move block down" })
 
 -- Clipboard
-map({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to system (+)" })
-map("n", "<leader>Y", [["+Y]], { desc = "Copy line to system (+)" })
-map("n", "<leader>P", [["+p]], { desc = "Paste from system" })
-map("x", "<leader>P", [["_d"+P]], { desc = "Paste from system over selection (Void)" })
-map("i", "<C-v>", "<C-r>+", { desc = "Paste from system" })
-map("c", "<C-v>", "<C-r>+", { desc = "Paste from system" })
+map({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to system" })
+map("n", "<leader>p", [[l"+P]], { desc = "Paste from system" })
+map("x", "<leader>p", [["_d"+P]], { desc = "Paste from system" })
 
 -- Utilities
 map("n", "U", "<C-r>", { desc = "Redo" })
