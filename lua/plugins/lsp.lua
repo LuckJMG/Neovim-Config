@@ -15,7 +15,6 @@ return {
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"saghen/blink.cmp",
-			"echasnovski/mini.icons",
 		},
 		opts = {
 			diagnostics = {
@@ -28,7 +27,12 @@ return {
 				},
 				severity_sort = true,
 				signs = {
-					text = {},
+					text = {
+						ERROR = "󰅚 ",
+						WARN = "󰀪 ",
+						HINT = "󰌶 ",
+						INFO = " ",
+					},
 				},
 			},
 			servers = {
@@ -44,15 +48,6 @@ return {
 			},
 		},
 		config = function(_, opts)
-			local icons = require("mini.icons")
-
-			opts.diagnostics.signs.text = {
-				[vim.diagnostic.severity.ERROR] = icons.get("lsp", "error"),
-				[vim.diagnostic.severity.WARN] = icons.get("lsp", "warn"),
-				[vim.diagnostic.severity.HINT] = icons.get("lsp", "hint"),
-				[vim.diagnostic.severity.INFO] = icons.get("lsp", "info"),
-			}
-
 			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
 			require("mason").setup()
