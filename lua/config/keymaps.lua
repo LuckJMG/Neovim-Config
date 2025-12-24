@@ -19,8 +19,8 @@ map("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move block down" })
 -- Clipboard
 map({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to system (+)" })
 map("n", "<leader>Y", [["+Y]], { desc = "Copy line to system (+)" })
-map({ "n", "x" }, "<leader>p", [["+p]], { desc = "Paste from system" })
-map("x", "<leader>p", [["_d"+P]], { desc = "Paste from system over selection (Void)" })
+map("n", "<leader>P", [["+p]], { desc = "Paste from system" })
+map("x", "<leader>P", [["_d"+P]], { desc = "Paste from system over selection (Void)" })
 map("i", "<C-v>", "<C-r>+", { desc = "Paste from system" })
 map("c", "<C-v>", "<C-r>+", { desc = "Paste from system" })
 
