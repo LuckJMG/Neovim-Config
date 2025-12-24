@@ -25,13 +25,14 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- Wrap & Spell
-autocmd("FileType", {
+autocmd("BufEnter", {
 	group = augroup("wrap_spell"),
-	pattern = { "gitcommit", "markdown", "text", "plaintext" },
 	callback = function()
-		vim.opt_local.wrap = true
-		vim.opt_local.linebreak = true
-		vim.opt_local.spell = true
+		if vim.tbl_contains({ "gitcommit", "markdown", "text", "plaintext" }, vim.bo.filetype) then
+			vim.opt_local.wrap = true
+			vim.opt_local.linebreak = true
+			vim.opt_local.spell = true
+		end
 	end,
 })
 
