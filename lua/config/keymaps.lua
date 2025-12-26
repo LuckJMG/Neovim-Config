@@ -35,6 +35,9 @@ end, { desc = "Copy file as markdown" })
 map("n", "U", "<C-r>", { desc = "Redo" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
 
+-- Code
+map("x", "<leader>cs", ":sort<CR>", { desc = "Sort Selection" })
+
 -- Deactivation
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
 map("n", "q", "<Nop>", { desc = "Deactivate Macros" })

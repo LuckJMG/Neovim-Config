@@ -37,78 +37,81 @@ The configuration follows a semantic structure to aid muscle memory.
 
 **Verbs:**
 - **c** (Code): LSP and code actions.
-- **x** (Fix): Diagnostics and errors.
-- **g** (Go): Navigation to views or tools.
 - **f** (Find): Find files.
-- **s** (Search): Search text.
-- **m** (Mark): Mark buffers.
-- **l** (List): List objects.
-- **k** (Know): Know information.
+- **g** (Go): Navigation to views or tools.
 - **gc** (Comment): Comment code.
+- **k** (Know): Know information.
+- **l** (List): List objects.
+- **m** (Mark): Mark buffers.
+- **s** (Search): Search text.
+- **x** (Fix): Diagnostics and errors.
 
 **Objects:**
-- **p** (Project): Entire project.
-- **g** (Git): Git management.
 - **b** (Buffer): Entire file.
-- **l** (Line): Line content (no whitespace on edges).
+- **g** (Git): Git management.
 - **gc** (Comment): Comment blocks.
+- **l** (Line): Line content (no whitespace on edges).
+- **p** (Project): Entire project.
 
 ### Code & LSP (`c`)
 Intelligent actions on the code.
 
-- `<leader>cd`: **C**ode **D**efinition (Go to definition)
 - `<leader>cD`: **C**ode **D**eclaration (Go to declaration)
-- `<leader>cR`: **C**ode **R**eferences (Show references)
 - `<leader>cI`: **C**ode **I**mplementation (Show implementation)
+- `<leader>cR`: **C**ode **R**eferences (Show references)
 - `<leader>ca`: **C**ode **A**ction (Show code actions)
-- `<leader>cr`: **C**ode **R**ename (Rename symbol)
+- `<leader>cd`: **C**ode **D**efinition (Go to definition)
 - `<leader>cf`: **C**ode **F**ormat (Format file)
+- `<leader>cr`: **C**ode **R**ename (Rename symbol)
+- `<leader>cs`: **C**ode **S**ort (Sort selection)
 
 ### Knowledge (`k`)
 Documentation and passive information.
 
-- `K`: **K**now Documentation (Hover docs)
 - `<leader>k`: **K**now Signature (Signature help)
+- `K`: **K**now Documentation (Hover docs)
 
 ### Fix / Diagnostics (`x`)
 Error and warning management.
 
-- `<leader>xx`: **F**ix Diagnostic (Show float diagnostic)
-- `<leader>xn`: **F**ix **N**ext (Next diagnostic)
 - `<leader>xN`: **F**ix **P**rev (Previous diagnostic)
+- `<leader>xn`: **F**ix **N**ext (Next diagnostic)
+- `<leader>xx`: **F**ix Diagnostic (Show float diagnostic)
 
 ### Navigation & Tools
 Movement between projects and files.
 
-- `<leader>gp`: **G**o **P**roject (File explorer / Oil)
-- `<leader>gg`: **G**o **G**it (LazyGit)
 - `<leader>fp`: **F**ind **P**roject (Find files)
+- `<leader>gg`: **G**o **G**it (LazyGit)
+- `<leader>gp`: **G**o **P**roject (File explorer / Oil)
 - `<leader>sp`: **S**earch **P**roject (Search text / Grep)
 
 ### Harpoon
 Quick navigation between frequent files.
 
-- `<leader>mb`: **M**ark **B**uffer (Add file)
-- `<leader>lb`: **L**ist **B**uffers (Quick menu)
-- `<leader>1-9`: Go to file 1-9
 - `<C-n>`: Harpoon Next (Fast cycle)
 - `<C-p>`: Harpoon Prev (Fast cycle)
+- `<leader>1-9`: Go to file 1-9
+- `<leader>lb`: **L**ist **B**uffers (Quick menu)
+- `<leader>mb`: **M**ark **B**uffer (Add file)
 
 ### Basic Movement & Edit
 Quality of life improvements.
+
+- `<C-s>`: Save file
+- `<C-u>` / `<C-d>`: Centered up/down scroll
+- `<Esc>`: Clear search highlight (`nohlsearch`)
+- `<` / `>`: Indent left/right maintaining selection
 - `H`: Go to start of line (`^`)
 - `L`: Go to end of line (`$`)
-- `<C-u>` / `<C-d>`: Centered up/down scroll
-- `n` / `N`: Next/Previous search result (centered)
-- `<` / `>`: Indent left/right maintaining selection
 - `U`: Redo
-- `<C-s>`: Save file
-- `<Esc>`: Clear search highlight (`nohlsearch`)
+- `n` / `N`: Next/Previous search result (centered)
 
 ### Clipboard
 System clipboard interaction.
-- `<leader>y`: Copy to system clipboard (`"+y`)
+
 - `<leader>p`: Paste from system clipboard (`"+p`)
+- `<leader>y`: Copy to system clipboard (`"+y`)
 
 ## Plugins
 ### Auto-completion
