@@ -149,6 +149,7 @@ Configuration file in `lua/plugins/ui.lua`.
 - [mini.icons](https://github.com/nvim-mini/mini.icons) for consistent icons.
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) for a modern status line.
 - [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
+- [harpoon-tabline](https://github.com/jasonpanosso/harpoon-tabline.nvim) for a graphic reminder of harpooned files.
 
 ## TODOs
 - Make harpooned files appear as tabs.

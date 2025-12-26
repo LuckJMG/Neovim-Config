@@ -47,4 +47,9 @@ return {
 		},
 		dependencies = { "MunifTanjim/nui.nvim" },
 	},
+	{
+		"jasonpanosso/harpoon-tabline.nvim",
+		dependencies = { "ThePrimeagen/harpoon" },
+		opts = {},
+	},
 }

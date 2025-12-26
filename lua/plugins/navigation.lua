@@ -43,19 +43,25 @@ return {
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			settings = {
+				save_on_toggle = true,
+				sync_on_ui_close = true,
+			},
+		},
 		keys = function()
+			local harpoon = require("harpoon")
 			local keys = {
 				{
 					"<leader>mb",
 					function()
-						require("harpoon"):list():add()
+						harpoon:list():add()
 					end,
 					desc = "Mark Buffer",
 				},
 				{
 					"<leader>lb",
 					function()
-						local harpoon = require("harpoon")
 						harpoon.ui:toggle_quick_menu(harpoon:list())
 					end,
 					desc = "List Buffers",
@@ -63,14 +69,14 @@ return {
 				{
 					"<C-n>",
 					function()
-						require("harpoon"):list():next()
+						harpoon:list():next({ ui_nav_wrap = true })
 					end,
 					desc = "Harpoon to next file",
 				},
 				{
 					"<C-p>",
 					function()
-						require("harpoon"):list():prev()
+						harpoon:list():prev({ ui_nav_wrap = true })
 					end,
 					desc = "Harpoon to prev file",
 				},
@@ -80,7 +86,7 @@ return {
 				table.insert(keys, {
 					"<leader>" .. i,
 					function()
-						require("harpoon"):list():select(i)
+						harpoon:list():select(i)
 					end,
 					desc = "Harpoon to file " .. i,
 				})

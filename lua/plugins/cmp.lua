@@ -57,7 +57,7 @@ return {
 				ghost_text = { enabled = true },
 			},
 		},
-		keymap = { preset = "default" },
+		keymap = { preset = "enter" },
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 }
