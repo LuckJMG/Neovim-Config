@@ -151,9 +151,6 @@ Configuration file in `lua/plugins/ui.lua`.
 - [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
 - [harpoon-tabline](https://github.com/jasonpanosso/harpoon-tabline.nvim) for a graphic reminder of harpooned files.
 
-## TODOs
-- Make harpooned files appear as tabs.
-
 ## Thanks
 To all the developers from neovim and its plugins to make this possible.
 
