@@ -1,23 +1,30 @@
--- Global
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+local global, options = vim.g, vim.o
 
--- UI
-vim.opt.termguicolors = true
-vim.opt.showmode = false
-vim.opt.hlsearch = false
-vim.opt.cursorline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.signcolumn = "yes"
-vim.opt.foldcolumn = "1"
-vim.opt.wrap = false
-vim.opt.scrolloff = 10
-vim.opt.colorcolumn = "81"
-vim.opt.mouse = ""
+-- General Settings
+global.mapleader = " "
+options.mouse = ""
+options.confirm = true
+options.updatetime = 300
 
--- Whitespace
-vim.opt.list = true
+-- Backup & Undo
+options.undofile = true
+options.swapfile = false
+options.backup = false
+options.writebackup = false
+
+-- UI & Appearance
+options.termguicolors = true
+options.showmode = false
+options.number = true
+options.relativenumber = true
+options.signcolumn = "yes"
+options.ruler = false
+options.cursorline = true
+options.colorcolumn = "81"
+options.fillchars = "eob: "
+
+-- List Chars
+options.list = true
 vim.opt.listchars = {
 	tab = "| ",
 	leadmultispace = "|   ",
@@ -25,33 +32,33 @@ vim.opt.listchars = {
 	nbsp = "␣",
 }
 
--- Files & Backup
-vim.opt.fixeol = true
-vim.opt.undofile = true
-vim.opt.swapfile = false
-
--- Search & Behaviour
-vim.opt.updatetime = 300
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.inccommand = "split"
-vim.opt.confirm = true
+-- Window & Buffer Handling
+options.wrap = false
+options.linebreak = true
+options.breakindent = true
+options.scrolloff = 10
+options.foldcolumn = "1"
+vim.opt.shortmess:append("WcC")
 
 -- Indentation
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = false
-vim.opt.autoindent = true
+options.tabstop = 4
+options.shiftwidth = 4
+options.softtabstop = 4
+options.expandtab = false
+options.autoindent = true
+options.smartindent = true
 
--- Completion
-vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-vim.opt.shortmess:append("c")
+-- Search & Editing
+options.ignorecase = true
+options.smartcase = true
+options.infercase = true
+options.incsearch = true
+options.completeopt = "menuone,noselect"
+options.formatoptions = "qjl1"
 
 -- Clipboard
 if vim.fn.has("wsl") == 1 then
-	vim.g.clipboard = {
+	global.clipboard = {
 		name = "WslClipboard",
 		copy = {
 			["+"] = "clip.exe",
@@ -64,7 +71,7 @@ if vim.fn.has("wsl") == 1 then
 		cache_enabled = 0,
 	}
 else
-	vim.g.clipboard = {
+	global.clipboard = {
 		name = "xclip",
 		copy = {
 			["+"] = "xclip -selection clipboard",
