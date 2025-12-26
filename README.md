@@ -103,8 +103,54 @@ Quality of life improvements.
 - `<C-s>`: Save file
 - `<Esc>`: Clear search highlight (`nohlsearch`)
 
+## Plugins
+Tried to use [nvim-mini](https://nvim-mini.org/mini.nvim/) by Evgeni Chasnovski, framework as a base/default.
+
+### Auto-completion
+Configuration file in `lua/plugins/cmp.lua`.
+
+- [blink.nvim](https://github.com/saghen/blink.cmp) as main auto-completion plugin.
+
+### Coding
+Configuration file in `lua/plugins/coding.lua`.
+
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint) as main linter.
+- [conform.nvim](https://github.com/stevearc/conform.nvim) as main formatter.
+- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) for lazygit seamless integration.
+- [mini.pairs](https://nvim-mini.org/mini.nvim/readmes/mini-pairs.html) for auto pairing.
+- [mini.splitjoin](https://nvim-mini.org/mini.nvim/readmes/mini-splitjoin.html) for intelligent joining.
+
+### LSP
+Configuration file in `lua/plugins/lsp.lua`.
+
+- [lazydev.nvim](https://github.com/folke/lazydev.nvim) for developing neovim configurations.
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) as main LSP configuration plugin.
+- [mason](https://github.com/mason-org/mason.nvim) to manage all LSP.
+
+### Navigation
+Configuration file in `lua/plugins/navigation.lua`.
+
+- [oil.nvim](https://github.com/stevearc/oil.nvim) for file tree managment.
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for quick finding files in any project.
+- [harpoon](https://github.com/ThePrimeagen/harpoon) for quick switching between files.
+
+### Treesitter
+Configuration file in `lua/plugins/treesittter.lua`.
+
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
+- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) for sticky context.
+- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.
+- [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects.
+
+### UI
+Configuration file in `lua/plugins/ui.lua`.
+
+- [everforest-nvim](https://github.com/neanias/everforest-nvim) main color scheme.
+- [mini.icons](https://github.com/nvim-mini/mini.icons) for consistent icons.
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) for a modern status line.
+- [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
+
 ## TODOs
-- Investigate [nvim-mini](https://github.com/nvim-mini/mini.nvim) plugins and see how many of my currents plugins can be replaced by more minimalist plugins from mini.
 - Make harpooned files appear as tabs.
 
 ## Thanks
