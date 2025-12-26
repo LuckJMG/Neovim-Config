@@ -64,27 +64,18 @@ autocmd("LspAttach", {
 		end
 
 		-- Navegation
-		map("<leader>cd", vim.lsp.buf.definition, "Code Definition")
-		map("<leader>cD", vim.lsp.buf.declaration, "Code Declaration")
-		map("<leader>cR", vim.lsp.buf.references, "Code References")
-		map("<leader>cI", vim.lsp.buf.implementation, "Code Implementation")
-
-		-- Information and Help
-		map("K", vim.lsp.buf.hover, "Know Documentation")
-		map("<leader>k", vim.lsp.buf.signature_help, "Know Signature")
+		map("gd", vim.lsp.buf.definition, "Go to Definition")
+		map("gD", vim.lsp.buf.declaration, "Go to Declaration")
+		map("gr", vim.lsp.buf.references, "Go to References")
+		map("gi", vim.lsp.buf.implementation, "Go to Implementation")
+		map("<leader>k", vim.lsp.buf.signature_help, "Show Signature")
 
 		-- Actions
 		map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 		map("<leader>cr", vim.lsp.buf.rename, "Code Rename")
 
 		-- Diagnostics
-		map("<leader>xx", vim.diagnostic.open_float, "Fix Diagnostic")
-		map("<leader>xn", function()
-			vim.diagnostic.jump({ count = 1 })
-		end, "Fix Next Diagnostic")
-		map("<leader>xN", function()
-			vim.diagnostic.jump({ count = -1 })
-		end, "Fix Prev Diagnostic")
+		map("<leader>cd", vim.diagnostic.open_float, "Code Diagnostic")
 	end,
 })
 

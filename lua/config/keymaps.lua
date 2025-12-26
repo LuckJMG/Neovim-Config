@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 -- Movement
-map({ "n", "x" }, "k", "gk", { desc = "Visual up" })
-map({ "n", "x" }, "j", "gj", { desc = "Visual down" })
+map({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true, desc = "Visual up" })
+map({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true, desc = "Visual down" })
 map({ "n", "x", "o" }, "H", "^", { desc = "Go to start of line" })
 map({ "n", "x", "o" }, "L", "$", { desc = "Go to end of line" })
 
@@ -17,10 +17,10 @@ map("x", "<", "<gv", { desc = "Indent left maintaining selection" })
 map("x", ">", ">gv", { desc = "Indent right maintaining selection" })
 
 -- Clipboard
-map({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to system" })
-map("n", "<leader>p", [[l"+P]], { desc = "Paste from system" })
-map("x", "<leader>p", [["_d"+P]], { desc = "Paste from system" })
-map("n", "<leader>yab", function()
+map("n", "gp", '"+p', { desc = "Paste from system clipboard" })
+map("x", "gp", '"+P', { desc = "Paste from system clipboard" })
+map({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
+map("n", "gyab", function()
 	local filepath = vim.fn.expand("%")
 	local filetype = vim.bo.filetype
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
@@ -33,7 +33,8 @@ end, { desc = "Copy file as markdown" })
 
 -- File
 map("n", "U", "<C-r>", { desc = "Redo" })
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "Save file" })
+map("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })
+map({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
 
 -- Code
 map("x", "<leader>cs", ":sort<CR>", { desc = "Sort Selection" })

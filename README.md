@@ -36,126 +36,72 @@ Keymaps intend to follow the Vim grammar, inspired by the talk [Mastering the Vi
 The configuration follows a semantic structure to aid muscle memory.
 
 **Verbs:**
-- **c** (Code): LSP and code actions.
-- **f** (Find): Find files.
-- **g** (Go): Navigation to views or tools.
-- **gc** (Comment): Comment code.
-- **k** (Know): Know information.
+- **c** (Code): Actions that modify or inspect code (Rename, Format, Actions).
+- **f** (Find): Find files by name.
+- **g** (Go): Navigation (Standard Vim + Extended Global actions).
+- **k** (Know): Documentation and Signatures.
 - **l** (List): List objects.
 - **m** (Mark): Mark buffers.
-- **s** (Search): Search text.
-- **x** (Fix): Diagnostics and errors.
+- **s** (Search): Search text content.
 
 **Objects:**
 - **b** (Buffer): Entire file.
 - **g** (Git): Git management.
-- **gc** (Comment): Comment blocks.
-- **l** (Line): Line content (no whitespace on edges).
-- **p** (Project): Entire project.
+- **p** (Project): Entire project directory.
 
-### Code & LSP (`c`)
-Intelligent actions on the code.
+### Code & LSP (`c` & `g`)
+Intelligent actions on the code. `g` is used for navigation, `c` for modification/info.
 
-- `<leader>cD`: **C**ode **D**eclaration (Go to declaration)
-- `<leader>cI`: **C**ode **I**mplementation (Show implementation)
-- `<leader>cR`: **C**ode **R**eferences (Show references)
-- `<leader>ca`: **C**ode **A**ction (Show code actions)
-- `<leader>cd`: **C**ode **D**efinition (Go to definition)
-- `<leader>cf`: **C**ode **F**ormat (Format file)
+- `gd`: **G**o **D**efinition
+- `gD`: **G**o **D**eclaration
+- `gr`: **G**o **R**eferences
+- `gi`: **G**o **I**mplementation
+- `<leader>ca`: **C**ode **A**ction (Execute code actions)
 - `<leader>cr`: **C**ode **R**ename (Rename symbol)
-- `<leader>cs`: **C**ode **S**ort (Sort selection)
+- `<leader>cf`: **C**ode **F**ormat (Format file)
+- `<leader>cd`: **C**ode **D**iagnostic (Show float diagnostic)
+- `<leader>cs`: **C**ode **S**ort (Sort selection in Visual)
 
 ### Knowledge (`k`)
 Documentation and passive information.
 
 - `<leader>k`: **K**now Signature (Signature help)
-- `K`: **K**now Documentation (Hover docs)
 
-### Fix / Diagnostics (`x`)
-Error and warning management.
+### Navigation & Tools (`g`, `f`, `s`)
+Movement between projects, files, and tools.
 
-- `<leader>xN`: **F**ix **P**rev (Previous diagnostic)
-- `<leader>xn`: **F**ix **N**ext (Next diagnostic)
-- `<leader>xx`: **F**ix Diagnostic (Show float diagnostic)
-
-### Navigation & Tools
-Movement between projects and files.
-
-- `<leader>fp`: **F**ind **P**roject (Find files)
-- `<leader>gg`: **G**o **G**it (LazyGit)
 - `<leader>gp`: **G**o **P**roject (File explorer / Oil)
+- `<leader>gg`: **G**o **G**it (LazyGit)
+- `<leader>fp`: **F**ind **P**roject (Find files)
 - `<leader>sp`: **S**earch **P**roject (Search text / Grep)
 
-### Harpoon
+### Harpoon (`m`, `l`)
 Quick navigation between frequent files.
 
+- `<leader>mb`: **M**ark **B**uffer (Add file)
+- `<leader>lb`: **L**ist **B**uffers (Quick menu)
 - `<C-n>`: Harpoon Next (Fast cycle)
 - `<C-p>`: Harpoon Prev (Fast cycle)
 - `<leader>1-9`: Go to file 1-9
-- `<leader>lb`: **L**ist **B**uffers (Quick menu)
-- `<leader>mb`: **M**ark **B**uffer (Add file)
+
+### Clipboard (`g`)
+System clipboard interaction using the global operator `g`.
+
+- `gy`: **G**lobal **Y**ank (Copy to system clipboard `"+y`)
+- `gp`: **G**lobal **P**aste (Paste from system clipboard `"+p`)
+- `gyab`: **G**lobal **Y**ank **A**round **B**uffer (Copy file as Markdown block)
 
 ### Basic Movement & Edit
 Quality of life improvements.
 
-- `<C-s>`: Save file
-- `<C-u>` / `<C-d>`: Centered up/down scroll
-- `<Esc>`: Clear search highlight (`nohlsearch`)
-- `<` / `>`: Indent left/right maintaining selection
 - `H`: Go to start of line (`^`)
 - `L`: Go to end of line (`$`)
-- `U`: Redo
+- `<C-u>` / `<C-d>`: Centered up/down scroll
 - `n` / `N`: Next/Previous search result (centered)
-
-### Clipboard
-System clipboard interaction.
-
-- `<leader>p`: Paste from system clipboard (`"+p`)
-- `<leader>y`: Copy to system clipboard (`"+y`)
-
-## Plugins
-### Auto-completion
-Configuration file in `lua/plugins/cmp.lua`.
-
-- [blink.nvim](https://github.com/saghen/blink.cmp) as main auto-completion plugin.
-
-### Coding
-Configuration file in `lua/plugins/coding.lua`.
-
-- [nvim-lint](https://github.com/mfussenegger/nvim-lint) as main linter.
-- [conform.nvim](https://github.com/stevearc/conform.nvim) as main formatter.
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) to auto close pairs.
-- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) for lazygit seamless integration.
-
-### LSP
-Configuration file in `lua/plugins/lsp.lua`.
-
-- [lazydev.nvim](https://github.com/folke/lazydev.nvim) for developing neovim configurations.
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) as main LSP configuration plugin.
-- [mason](https://github.com/mason-org/mason.nvim) to manage all LSP.
-
-### Navigation
-Configuration file in `lua/plugins/navigation.lua`.
-
-- [oil.nvim](https://github.com/stevearc/oil.nvim) for file tree managment.
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for quick finding files in any project.
-- [harpoon](https://github.com/ThePrimeagen/harpoon) for quick switching between files.
-
-### Treesitter
-Configuration file in `lua/plugins/treesittter.lua`.
-
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
-- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) for sticky context.
-- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.
-- [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for text object manipulation.
-
-### UI
-Configuration file in `lua/plugins/ui.lua`.
-
-- [everforest-nvim](https://github.com/neanias/everforest-nvim) main color scheme.
-- [mini.icons](https://github.com/nvim-mini/mini.icons) for consistent icons.
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) for a modern status line.
-- [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
+- `<` / `>`: Indent left/right maintaining selection
+- `U`: Redo
+- `<C-s>`: Save file
+- `<Esc>`: Clear search highlight (`nohlsearch`)
 
 ## TODOs
 - Investigate [nvim-mini](https://github.com/nvim-mini/mini.nvim) plugins and see how many of my currents plugins can be replaced by more minimalist plugins from mini.
