@@ -65,4 +65,5 @@ return {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Go to Git" },
 		},
 	},
+	{ "nvim-mini/mini.comment", version = false },
 }

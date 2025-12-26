@@ -44,12 +44,14 @@ The configuration follows a semantic structure to aid muscle memory.
 - **m** (Mark): Mark buffers.
 - **l** (List): List objects.
 - **k** (Know): Know information.
+- **gc** (Comment): Comment code.
 
 **Objects:**
 - **p** (Project): Entire project.
 - **g** (Git): Git management.
 - **b** (Buffer): Entire file.
 - **l** (Line): Line content (no whitespace on edges).
+- **gc** (Comment): Comment blocks.
 
 ### Code & LSP (`c`)
 Intelligent actions on the code.
