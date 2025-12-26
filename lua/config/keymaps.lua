@@ -20,7 +20,7 @@ map("x", ">", ">gv", { desc = "Indent right maintaining selection" })
 map({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to system" })
 map("n", "<leader>p", [[l"+P]], { desc = "Paste from system" })
 map("x", "<leader>p", [["_d"+P]], { desc = "Paste from system" })
-map("n", "<leader>ya", function()
+map("n", "<leader>yab", function()
 	local filepath = vim.fn.expand("%")
 	local filetype = vim.bo.filetype
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
@@ -28,7 +28,7 @@ map("n", "<leader>ya", function()
 	local formatted_text = string.format("-- %s\n```%s\n%s\n```\n\n", filepath, filetype, content)
 
 	vim.fn.setreg("+", formatted_text)
-	vim.notify(string.format("File %s copied to clipboard", filepath), vim.log.levels.INFO)
+	vim.notify(string.format("File %s copied as markdown", filepath), vim.log.levels.INFO)
 end, { desc = "Copy file as markdown" })
 
 -- File

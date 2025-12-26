@@ -43,11 +43,13 @@ The configuration follows a semantic structure to aid muscle memory.
 - **s** (Search): Search text.
 - **m** (Mark): Mark buffers.
 - **l** (List): List objects.
+- **k** (Know): Know information.
 
 **Objects:**
 - **p** (Project): Entire project.
 - **g** (Git): Git management.
 - **b** (Buffer): Entire file.
+- **l** (Line): Line content (no whitespace on edges).
 
 ### Code & LSP (`c`)
 Intelligent actions on the code.
@@ -140,6 +142,7 @@ Configuration file in `lua/plugins/treesittter.lua`.
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) for sticky context.
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.
+- [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for text object manipulation.
 
 ### UI
 Configuration file in `lua/plugins/ui.lua`.
