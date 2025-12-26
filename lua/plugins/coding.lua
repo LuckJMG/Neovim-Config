@@ -46,11 +46,6 @@ return {
 		},
 	},
 	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = true,
-	},
-	{
 		"kdheepak/lazygit.nvim",
 		lazy = true,
 		cmd = {
@@ -65,5 +60,6 @@ return {
 			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Go to Git" },
 		},
 	},
-	{ "nvim-mini/mini.comment", version = false },
+	{ "nvim-mini/mini.pairs", version = false, opts = {} },
+	{ "nvim-mini/mini.splitjoin", version = false, opts = {} },
 }
