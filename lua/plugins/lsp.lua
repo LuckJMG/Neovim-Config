@@ -45,6 +45,9 @@ return {
 						},
 					},
 				},
+				bashls = {
+					filetypes = { "sh", "bash", "zsh", ".zshrc" },
+				},
 			},
 		},
 		config = function(_, opts)
@@ -52,22 +55,17 @@ return {
 
 			require("mason").setup()
 			local mason_lsp = require("mason-lspconfig")
+			local lspconfig = require("lspconfig")
 
 			mason_lsp.setup({
 				ensure_installed = vim.tbl_keys(opts.servers),
 				automatic_installation = true,
+				automatic_enable = false,
 			})
 
-			local lspconfig = require("lspconfig")
-
 			for server, config in pairs(opts.servers) do
-				local default_config = lspconfig[server].document_config.default_config
-				local final_config = vim.tbl_deep_extend("force", default_config, config)
-
-				final_config.capabilities = require("blink.cmp").get_lsp_capabilities(final_config.capabilities)
-
-				vim.lsp.config(server, final_config)
-				vim.lsp.enable(server)
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				lspconfig[server].setup(config)
 			end
 		end,
 	},
