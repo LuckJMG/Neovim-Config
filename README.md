@@ -69,9 +69,9 @@ Documentation and passive information.
 ### Navigation & Tools (`g`, `f`, `s`)
 Movement between projects, files, and tools.
 
-- `<leader>gg`: **G**o **G**it (LazyGit)
 - `-`: Open Parent Directory (Oil)
 - `<leader>fp`: **F**ind **P**roject (Find files)
+- `<leader>gp`: **G**it **P**roject (LazyGit)
 - `<leader>sp`: **S**earch **P**roject (Search text / Grep)
 
 ### Harpoon (`m`, `l`)

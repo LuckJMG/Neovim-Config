@@ -59,7 +59,7 @@ return {
 		},
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "Go to Git" },
+			{ "<leader>gp", "<cmd>LazyGit<cr>", desc = "Git Project" },
 		},
 	},
 	{ "nvim-mini/mini.pairs", version = false, opts = {} },
