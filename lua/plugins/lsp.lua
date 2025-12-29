@@ -45,9 +45,7 @@ return {
 						},
 					},
 				},
-				bashls = {
-					filetypes = { "sh", "bash", "zsh", ".zshrc" },
-				},
+				bashls = {},
 			},
 		},
 		config = function(_, opts)
