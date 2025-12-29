@@ -24,7 +24,11 @@ return {
 		dependencies = { "nvim-mini/mini.icons" },
 		event = "VeryLazy",
 		opts = {
-			theme = "everforest",
+			options = {
+				theme = "everforest",
+				component_separators = "",
+				section_separators = "",
+			},
 		},
 	},
 	{
