@@ -53,7 +53,6 @@ return {
 
 			require("mason").setup()
 			local mason_lsp = require("mason-lspconfig")
-			local lspconfig = require("lspconfig")
 
 			mason_lsp.setup({
 				ensure_installed = vim.tbl_keys(opts.servers),
@@ -63,7 +62,7 @@ return {
 
 			for server, config in pairs(opts.servers) do
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-				lspconfig[server].setup(config)
+				vim.lsp.config(server, config)
 			end
 		end,
 	},
