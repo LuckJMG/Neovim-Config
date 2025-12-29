@@ -3,11 +3,14 @@ return {
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
-		opts = { float = { border = "rounded" } },
+		opts = {
+			float = { border = "rounded" },
+			confirmation = { border = "rounded" },
+		},
 		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		lazy = false,
 		keys = {
-			{ "<leader>gp", "<cmd>Oil<cr>", desc = "Go to Project" },
+			{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
 		},
 	},
 	{
