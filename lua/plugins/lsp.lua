@@ -46,6 +46,7 @@ return {
 					},
 				},
 				bashls = {},
+				basedpyright = {},
 			},
 		},
 		config = function(_, opts)

@@ -7,6 +7,7 @@ return {
 
 			lint.linters_by_ft = {
 				lua = { "luacheck" },
+				python = { "ruff" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -40,6 +41,7 @@ return {
 				lua = { "stylua" },
 				sh = { "shfmt" },
 				bash = { "shfmt" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
