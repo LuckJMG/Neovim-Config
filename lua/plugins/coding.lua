@@ -67,4 +67,5 @@ return {
 	{ "nvim-mini/mini.pairs", version = false, opts = {} },
 	{ "nvim-mini/mini.splitjoin", version = false, opts = {} },
 	{ "nvim-mini/mini.operators", version = false, opts = {} },
+	{ "nvim-mini/mini.comment", version = false, opts = {} },
 }
