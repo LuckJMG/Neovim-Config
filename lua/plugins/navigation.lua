@@ -56,18 +56,18 @@ return {
 			local harpoon = require("harpoon")
 			local keys = {
 				{
-					"<leader>mb",
+					"<leader>m",
 					function()
 						harpoon:list():add()
 					end,
 					desc = "Mark Buffer",
 				},
 				{
-					"<leader>lb",
+					"<leader>M",
 					function()
 						harpoon.ui:toggle_quick_menu(harpoon:list())
 					end,
-					desc = "List Buffers",
+					desc = "Marked Buffer List",
 				},
 				{
 					"<C-n>",

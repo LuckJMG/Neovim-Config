@@ -77,8 +77,8 @@ Movement between projects, files, and tools.
 ### Harpoon (`m`, `l`)
 Quick navigation between frequent files.
 
-- `<leader>mb`: **M**ark **B**uffer (Add file)
-- `<leader>lb`: **L**ist **B**uffers (Quick menu)
+- `<leader>m`: **M**ark Buffer
+- `<leader>M`: **M**arked Buffers List
 - `<C-n>`: Harpoon Next (Fast cycle)
 - `<C-p>`: Harpoon Prev (Fast cycle)
 - `<leader>1-9`: Go to file 1-9
