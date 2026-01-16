@@ -45,7 +45,7 @@ The configuration follows a semantic structure to aid muscle memory.
 - **s** (Search): Search text content.
 
 **Objects:**
-- **b** (Buffer): Entire file.
+- **B** (Buffer): Entire file.
 - **g** (Git): Git management.
 - **p** (Project): Entire project directory.
 
@@ -88,7 +88,7 @@ System clipboard interaction using the global operator `g`.
 
 - `gy`: **G**lobal **Y**ank (Copy to system clipboard `"+y`)
 - `gp`: **G**lobal **P**aste (Paste from system clipboard `"+p`)
-- `gyab`: **G**lobal **Y**ank **A**round **B**uffer (Copy file as Markdown block)
+- `gyaB`: **G**lobal **Y**ank **A**round **B**uffer (Copy file as Markdown block)
 
 ### Basic Movement & Edit
 Quality of life improvements.
@@ -137,7 +137,7 @@ Configuration file in `lua/plugins/navigation.lua`.
 ### Treesitter
 Configuration file in `lua/plugins/treesittter.lua`.
 
-- [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects.
+- [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects including those in [mini.extra](https://nvim-mini.org/mini.nvim/readmes/mini-extra.html).
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context) for sticky context.
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.

@@ -20,7 +20,7 @@ map("x", ">", ">gv", { desc = "Indent right maintaining selection" })
 map("n", "gp", '"+p', { desc = "Paste from system clipboard" })
 map("x", "gp", '"+P', { desc = "Paste from system clipboard" })
 map({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
-map("n", "gyab", function()
+map("n", "gyaB", function()
 	local filepath = vim.fn.expand("%")
 	local filetype = vim.bo.filetype
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
