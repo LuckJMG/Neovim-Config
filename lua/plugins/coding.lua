@@ -64,6 +64,7 @@ return {
 			{ "<leader>gp", "<cmd>LazyGit<cr>", desc = "Git Project" },
 		},
 	},
+	{ "NMAC427/guess-indent.nvim", opts = {} },
 	{ "nvim-mini/mini.pairs", version = false, opts = {} },
 	{ "nvim-mini/mini.splitjoin", version = false, opts = {} },
 	{ "nvim-mini/mini.operators", version = false, opts = {} },
