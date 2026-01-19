@@ -15,10 +15,10 @@ return {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "v0.2.0",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
 		},
 		keys = {
 			{ "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find Project files" },
@@ -27,20 +27,26 @@ return {
 		opts = {
 			defaults = {
 				file_ignore_patterns = { "node_modules", ".git/", ".venv/" },
-				layout_strategy = "horizontal",
-				layout_config = {
-					height = 0.9,
-					width = 0.9,
-				},
-				sorting_strategy = "ascending",
-				prompt_position = "top",
 			},
 			pickers = {
 				find_files = {
 					hidden = true,
 				},
 			},
+			extensions = {
+				["ui-select"] = {
+					require("telescope.themes").get_cursor({}),
+				},
+			},
 		},
+		config = function(_, opts)
+			local telescope = require("telescope")
+			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({}))
+			telescope.setup(opts)
+
+			pcall(telescope.load_extension, "fzf")
+			pcall(telescope.load_extension, "ui-select")
+		end,
 	},
 	{
 		"ThePrimeagen/harpoon",
