@@ -21,8 +21,12 @@ return {
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 		},
 		keys = {
-			{ "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find Project files" },
-			{ "<leader>sp", "<cmd>Telescope live_grep<cr>", desc = "Search Project strings" },
+			{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search Files" },
+			{ "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Search by Grep" },
+			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Search Help" },
+			{ "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Search current Word" },
+			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Search Keymaps" },
+			{ "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in current buffer" },
 		},
 		opts = {
 			defaults = {
