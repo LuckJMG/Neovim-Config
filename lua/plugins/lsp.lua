@@ -12,20 +12,30 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ "williamboman/mason.nvim", config = true },
-			"williamboman/mason-lspconfig.nvim",
+			{ "mason-org/mason.nvim", opts = {} },
+			"mason-org/mason-lspconfig.nvim",
+			{ "j-hui/fidget.nvim", opts = {} },
 			"saghen/blink.cmp",
 		},
 		opts = {
 			diagnostics = {
-				underline = true,
+				severity_sort = true,
+				float = { border = "rounded", source = "if_many" },
+				underline = { severity = vim.diagnostic.severity.ERROR },
 				update_in_insert = false,
 				virtual_text = {
-					spacing = 4,
+					spacing = 2,
 					source = "if_many",
-					prefix = "●",
+					format = function(diagnostic)
+						local diagnostic_message = {
+							[vim.diagnostic.severity.ERROR] = diagnostic.message,
+							[vim.diagnostic.severity.WARN] = diagnostic.message,
+							[vim.diagnostic.severity.INFO] = diagnostic.message,
+							[vim.diagnostic.severity.HINT] = diagnostic.message,
+						}
+						return diagnostic_message[diagnostic.severity]
+					end,
 				},
-				severity_sort = true,
 				signs = {
 					text = {
 						ERROR = "󰅚 ",
@@ -50,6 +60,53 @@ return {
 			},
 		},
 		config = function(_, opts)
+			local autocmd = vim.api.nvim_create_autocmd
+			local augroup = vim.api.nvim_create_augroup
+
+			autocmd("LspAttach", {
+				group = augroup("UserLspConfig", { clear = true }),
+				callback = function(event)
+					local function map(keys, func, desc)
+						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+					end
+
+					-- Navegation
+					map("gd", vim.lsp.buf.definition, "Go to Definition")
+					map("gD", vim.lsp.buf.declaration, "Go to Declaration")
+					map("gr", vim.lsp.buf.references, "Go to References")
+					map("gi", vim.lsp.buf.implementation, "Go to Implementation")
+					map("<leader>k", vim.lsp.buf.signature_help, "Show Signature")
+
+					-- Actions
+					map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+					map("<leader>cr", vim.lsp.buf.rename, "Code Rename")
+
+					-- Diagnostics
+					map("<leader>cd", vim.diagnostic.open_float, "Code Diagnostic")
+
+					local highlight_group = augroup("LspHighlight", { clear = true })
+					autocmd({ "CursorHold", "CursorHoldI" }, {
+						buffer = event.buf,
+						group = highlight_group,
+						callback = vim.lsp.buf.document_highlight,
+					})
+
+					autocmd({ "CursorMoved", "CursorMovedI" }, {
+						buffer = event.buf,
+						group = highlight_group,
+						callback = vim.lsp.buf.clear_references,
+					})
+
+					autocmd("LspDetach", {
+						group = augroup("LspDetach", { clear = true }),
+						callback = function(event2)
+							vim.lsp.buf.clear_references()
+							vim.api.autocmds({ group = "LspHighlight", buffer = event2.buf })
+						end,
+					})
+				end,
+			})
+
 			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
 			require("mason").setup()

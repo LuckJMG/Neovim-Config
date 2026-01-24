@@ -55,30 +55,6 @@ autocmd("FileType", {
 	end,
 })
 
--- LSP
-autocmd("LspAttach", {
-	group = augroup("UserLspConfig"),
-	callback = function(event)
-		local function map(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
-
-		-- Navegation
-		map("gd", vim.lsp.buf.definition, "Go to Definition")
-		map("gD", vim.lsp.buf.declaration, "Go to Declaration")
-		map("gr", vim.lsp.buf.references, "Go to References")
-		map("gi", vim.lsp.buf.implementation, "Go to Implementation")
-		map("<leader>k", vim.lsp.buf.signature_help, "Show Signature")
-
-		-- Actions
-		map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-		map("<leader>cr", vim.lsp.buf.rename, "Code Rename")
-
-		-- Diagnostics
-		map("<leader>cd", vim.diagnostic.open_float, "Code Diagnostic")
-	end,
-})
-
 -- Restore cursor
 autocmd("BufReadPost", {
 	group = augroup("last_loc"),
