@@ -14,7 +14,6 @@ return {
 	opts = {
 		appearance = {
 			nerd_font_variant = "mono",
-			use_nvim_cmp_as_default = true,
 		},
 		completion = {
 			accept = {
@@ -27,7 +26,7 @@ return {
 					treesitter = { "lsp" },
 				},
 			},
-			documentation = { auto_show = false },
+			documentation = { auto_show = false, auto_show_delay_ms = 500 },
 		},
 		sources = {
 			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -57,7 +56,7 @@ return {
 				ghost_text = { enabled = true },
 			},
 		},
-		keymap = { preset = "enter" },
+		keymap = { preset = "default" },
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 }
