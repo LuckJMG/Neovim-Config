@@ -28,7 +28,7 @@ return {
 			{
 				"<leader>cf",
 				function()
-					require("conform").format({ async = true })
+					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
 				desc = "Code Format",
@@ -37,6 +37,7 @@ return {
 		---@module "conform"
 		---@type conform.setupOpts
 		opts = {
+			notify_on_error = false,
 			formatters_by_ft = {
 				lua = { "stylua" },
 				sh = { "shfmt" },
