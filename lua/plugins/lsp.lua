@@ -83,27 +83,6 @@ return {
 
 					-- Diagnostics
 					map("<leader>cd", vim.diagnostic.open_float, "Code Diagnostic")
-
-					local highlight_group = augroup("LspHighlight", { clear = true })
-					autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = event.buf,
-						group = highlight_group,
-						callback = vim.lsp.buf.document_highlight,
-					})
-
-					autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = event.buf,
-						group = highlight_group,
-						callback = vim.lsp.buf.clear_references,
-					})
-
-					autocmd("LspDetach", {
-						group = augroup("LspDetach", { clear = true }),
-						callback = function(event2)
-							vim.lsp.buf.clear_references()
-							vim.api.autocmds({ group = "LspHighlight", buffer = event2.buf })
-						end,
-					})
 				end,
 			})
 
