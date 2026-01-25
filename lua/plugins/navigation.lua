@@ -7,7 +7,23 @@ return {
 			skip_confirm_for_simple_edits = true,
 			float = { border = "rounded" },
 			confirmation = { border = "rounded" },
-			view_options = { show_hidden = true },
+			view_options = {
+				show_hidden = true,
+				is_always_hidden = function(name, _)
+					if name:sub(-#"-lock.json") == "-lock.json" then
+						return true
+					end
+
+					local always_hidden = { "..", ".git" }
+					for _, value in ipairs(always_hidden) do
+						if value == name then
+							return true
+						end
+					end
+
+					return false
+				end,
+			},
 		},
 		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
 		lazy = false,
