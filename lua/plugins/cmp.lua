@@ -12,20 +12,10 @@ return {
 	---@diagnostic disable-next-line: undefined-doc-name
 	---@type blink.cmp.Config
 	opts = {
-		appearance = {
-			nerd_font_variant = "mono",
-		},
+		appearance = { nerd_font_variant = "mono" },
 		completion = {
-			accept = {
-				auto_brackets = {
-					enabled = true,
-				},
-			},
-			menu = {
-				draw = {
-					treesitter = { "lsp" },
-				},
-			},
+			accept = { auto_brackets = { enabled = true } },
+			menu = { draw = { treesitter = { "lsp" } } },
 			documentation = { auto_show = false, auto_show_delay_ms = 500 },
 		},
 		sources = {

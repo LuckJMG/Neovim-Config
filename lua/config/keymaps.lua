@@ -17,9 +17,9 @@ map("x", "<", "<gv", { desc = "Indent left maintaining selection" })
 map("x", ">", ">gv", { desc = "Indent right maintaining selection" })
 
 -- Clipboard
-map("n", "gp", '"+p', { desc = "Paste from system clipboard" })
-map("x", "gp", '"+P', { desc = "Paste from system clipboard" })
-map({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
+map("n", "gp", '"+p', { desc = "[P]aste from system" })
+map("x", "gp", '"+P', { desc = "[P]aste from system" })
+map({ "n", "x" }, "gy", '"+y', { desc = "[Y]ank to system" })
 map("n", "gyaB", function()
 	local filepath = vim.fn.expand("%")
 	local filetype = vim.bo.filetype
@@ -29,7 +29,7 @@ map("n", "gyaB", function()
 
 	vim.fn.setreg("+", formatted_text)
 	vim.notify(string.format("File %s copied as markdown", filepath), vim.log.levels.INFO)
-end, { desc = "Copy file as markdown" })
+end, { desc = "[Y]ank [a]round [B]uffer" })
 
 -- File
 map("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })

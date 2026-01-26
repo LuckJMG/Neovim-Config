@@ -10,10 +10,8 @@ return {
 				python = { "ruff" },
 			}
 
-			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
-				group = lint_augroup,
+				group = vim.api.nvim_create_augroup("lint", { clear = true }),
 				callback = function()
 					lint.try_lint()
 				end,
@@ -31,7 +29,7 @@ return {
 					require("conform").format({ async = true, lsp_format = "fallback" })
 				end,
 				mode = "",
-				desc = "Code Format",
+				desc = "[C]ode [F]ormat",
 			},
 		},
 		---@module "conform"
@@ -44,9 +42,7 @@ return {
 				bash = { "shfmt" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			},
-			default_format_opts = {
-				lsp_format = "fallback",
-			},
+			default_format_opts = { lsp_format = "fallback" },
 			format_on_save = { timeout_ms = 500 },
 		},
 	},
@@ -62,7 +58,7 @@ return {
 		},
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>gp", "<cmd>LazyGit<cr>", desc = "Git Project" },
+			{ "<leader>g", "<cmd>LazyGit<cr>", desc = "[G]it" },
 		},
 	},
 	{ "NMAC427/guess-indent.nvim", opts = {} },

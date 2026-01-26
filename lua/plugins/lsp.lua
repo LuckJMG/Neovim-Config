@@ -70,19 +70,15 @@ return {
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					-- Navegation
-					map("gd", vim.lsp.buf.definition, "Go to Definition")
-					map("gD", vim.lsp.buf.declaration, "Go to Declaration")
-					map("gr", vim.lsp.buf.references, "Go to References")
-					map("gi", vim.lsp.buf.implementation, "Go to Implementation")
+					map("<leader>cD", vim.lsp.buf.declaration, "[C]ode [D]eclaration")
+					map("<leader>cR", vim.lsp.buf.references, "[C]ode [R]eferences")
+					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+					map("<leader>cd", vim.diagnostic.open_float, "[C]ode [D]iagnostic")
+					map("<leader>cd", vim.lsp.buf.definition, "[C]ode [D]efinition")
+					map("<leader>ci", vim.lsp.buf.implementation, "[C]ode [I]mplementation")
+					map("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
+
 					map("<leader>k", vim.lsp.buf.signature_help, "Show Signature")
-
-					-- Actions
-					map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-					map("<leader>cr", vim.lsp.buf.rename, "Code Rename")
-
-					-- Diagnostics
-					map("<leader>cd", vim.diagnostic.open_float, "Code Diagnostic")
 				end,
 			})
 

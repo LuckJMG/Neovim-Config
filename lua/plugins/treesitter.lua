@@ -4,9 +4,7 @@ return {
 		build = ":TSUpdate",
 		event = "VeryLazy",
 		cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
-		dependencies = {
-			{ "windwp/nvim-ts-autotag", opts = {} },
-		},
+		dependencies = { { "windwp/nvim-ts-autotag", opts = {} } },
 		opts_extend = { "ensure_installed" },
 		opts = {
 			indent = { enable = true },
@@ -45,15 +43,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		event = { "BufReadPost", "BufNewFile" },
-		opts = {
-			mode = "cursor",
-			max_lines = 3,
-		},
+		opts = { mode = "cursor", max_lines = 3 },
 	},
-	{
-		"windwp/nvim-ts-autotag",
-		opts = {},
-	},
+	{ "windwp/nvim-ts-autotag", opts = {} },
 	{
 		"nvim-mini/mini.ai",
 		version = false,
