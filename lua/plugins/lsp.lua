@@ -66,19 +66,23 @@ return {
 			autocmd("LspAttach", {
 				group = augroup("UserLspConfig", { clear = true }),
 				callback = function(event)
+					local telescope = require("telescope.builtin")
+					local code = vim.lsp.buf
 					local function map(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					map("<leader>cD", vim.lsp.buf.declaration, "[C]ode [D]eclaration")
-					map("<leader>cR", vim.lsp.buf.references, "[C]ode [R]eferences")
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-					map("<leader>cd", vim.diagnostic.open_float, "[C]ode [D]iagnostic")
-					map("<leader>cd", vim.lsp.buf.definition, "[C]ode [D]efinition")
-					map("<leader>ci", vim.lsp.buf.implementation, "[C]ode [I]mplementation")
-					map("<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
+					map("<leader>cD", code.declaration, "[C]ode [D]eclaration")
+					map("<leader>cR", telescope.lsp_references, "[C]ode [R]eferences")
+					map("<leader>ca", code.code_action, "[C]ode [A]ction")
+					map("<leader>cd", telescope.lsp_definitions, "[C]ode [D]efinition")
+					map("<leader>ci", telescope.lsp_implementations, "[C]ode [I]mplementation")
+					map("<leader>ct", telescope.lsp_type_definitions, "[C]ode [T]ype Definition")
+					map("<leader>cr", code.rename, "[C]ode [R]ename")
+					map("<F2>", code.rename, "[C]ode [R]ename")
 
-					map("<leader>k", vim.lsp.buf.signature_help, "Show Signature")
+					map("<leader>k", code.signature_help, "Show Signature")
+					map("<leader>d", vim.diagnostic.open_float, "[D]iagnostic")
 				end,
 			})
 
