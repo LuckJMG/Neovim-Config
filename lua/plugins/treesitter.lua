@@ -2,14 +2,13 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
+		lazy = false,
 		cmd = { "TSUpdate", "TSInstall", "TSLog", "TSUninstall" },
-		dependencies = { { "windwp/nvim-ts-autotag", opts = {} } },
 		opts_extend = { "ensure_installed" },
 		opts = {
 			indent = { enable = true },
 			highlight = { enable = true },
-			autotag = { enable = true },
 			ensure_installed = {
 				"bash",
 				"c",
@@ -41,6 +40,9 @@ return {
 			auto_install = true,
 			incremental_selection = { enable = true },
 		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
