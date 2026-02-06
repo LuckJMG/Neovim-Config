@@ -32,34 +32,17 @@ Leader key: `<Space>`
 
 Keymaps intend to follow the Vim grammar, inspired by the talk [Mastering the Vim Language](https://www.youtube.com/watch?v=wlR5gYd6um0) by Chris Toomey.
 
-### Grammar (Verb + Object)
-The configuration follows a semantic structure to aid muscle memory.
+### Code
+Intelligent actions on the code.
 
-**Verbs:**
-- **c** (Code): Actions that modify or inspect code (Rename, Format, Actions).
-- **f** (Find): Find files by name.
-- **g** (Go): Navigation (Standard Vim + Extended Global actions).
-- **k** (Know): Documentation and Signatures.
-- **l** (List): List objects.
-- **m** (Mark): Mark buffers.
-- **s** (Search): Search text content.
-
-**Objects:**
-- **B** (Buffer): Entire file.
-- **g** (Git): Git management.
-- **p** (Project): Entire project directory.
-
-### Code & LSP (`c` & `g`)
-Intelligent actions on the code. `g` is used for navigation, `c` for modification/info.
-
-- `gd`: **G**o **D**efinition
-- `gD`: **G**o **D**eclaration
-- `gr`: **G**o **R**eferences
-- `gi`: **G**o **I**mplementation
-- `<leader>ca`: **C**ode **A**ction (Execute code actions)
-- `<leader>cr`: **C**ode **R**ename (Rename symbol)
-- `<leader>cf`: **C**ode **F**ormat (Format file)
-- `<leader>cd`: **C**ode **D**iagnostic (Show float diagnostic)
+- `<leader>cd`: **[C]**ode **[D]**efinition
+- `<leader>cD`: **[C]**ode **[D]**eclaration
+- `<leader>cR`: **[C]**ode **[R]**eferences
+- `<leader>ci`: **[C]**ode **[I]**mplementation
+- `<leader>ca`: **[C]**ode **[A]**ction
+- `<leader>cr` or `<F2>`: **[C]**ode **[R]**ename
+- `<leader>cf`: **[C]**ode **[F]**ormat
+- `<leader>d`: **[D]**iagnostic
 
 ### Knowledge (`k`)
 Documentation and passive information.
