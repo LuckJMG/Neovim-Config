@@ -46,6 +46,9 @@ return {
 				},
 			},
 			servers = {
+				basedpyright = {},
+				bashls = {},
+				cssls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -55,8 +58,26 @@ return {
 						},
 					},
 				},
-				bashls = {},
-				basedpyright = {},
+				svelte = {},
+				tailwindcss = {},
+				vtsls = {
+					settings = {
+						vtsls = {
+							autoUseWorkspaceTsdk = true,
+							experimental = {
+								completion = {
+									enableServerSideFuzzyMatch = true,
+								},
+							},
+						},
+						typescript = {
+							updateImportsOnFileMove = { enabled = "always" },
+							suggest = {
+								completeFunctionCalls = true,
+							},
+						},
+					},
+				},
 			},
 		},
 		config = function(_, opts)

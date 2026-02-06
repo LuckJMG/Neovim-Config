@@ -8,6 +8,9 @@ return {
 			lint.linters_by_ft = {
 				lua = { "luacheck" },
 				python = { "ruff" },
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				svelte = { "eslint_d" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
@@ -37,10 +40,16 @@ return {
 		opts = {
 			notify_on_error = false,
 			formatters_by_ft = {
-				lua = { "stylua" },
-				sh = { "shfmt" },
 				bash = { "shfmt" },
+				css = { "prettierd" },
+				html = { "prettierd" },
+				javascript = { "prettierd" },
+				json = { "prettierd" },
+				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+				sh = { "shfmt" },
+				svelte = { "prettierd" },
+				typescript = { "prettierd" },
 			},
 			default_format_opts = { lsp_format = "fallback" },
 			format_on_save = { timeout_ms = 500 },
