@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		{ "folke/lazydev.nvim", ft = "lua" },
+		{ "giuxtaposition/blink-cmp-copilot" },
 	},
 	event = { "InsertEnter", "CmdlineEnter" },
 
@@ -20,13 +21,19 @@ return {
 			menu = { draw = { treesitter = { "lsp" } } },
 		},
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
 			providers = {
 				lazydev = {
 					name = "LazyDev",
 					fallbacks = { "lsp" },
 					module = "lazydev.integrations.blink",
 					score_offset = 100,
+				},
+				copilot = {
+					name = "copilot",
+					module = "blink-cmp-copilot",
+					score_offset = 200,
+					async = true,
 				},
 			},
 		},

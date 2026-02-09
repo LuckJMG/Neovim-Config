@@ -70,6 +70,17 @@ return {
 			{ "<leader>g", "<cmd>LazyGit<cr>", desc = "[G]it" },
 		},
 	},
+	{
+		"zbirenbaum/copilot.lua",
+		event = "BufReadPost",
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		},
+		config = function(_, opts)
+			require("copilot").setup(opts)
+		end,
+	},
 	{ "NMAC427/guess-indent.nvim", opts = {} },
 	{ "nvim-mini/mini.pairs", version = false, opts = {} },
 	{ "nvim-mini/mini.splitjoin", version = false, opts = {} },
