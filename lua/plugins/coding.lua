@@ -6,11 +6,11 @@ return {
 			local lint = require("lint")
 
 			lint.linters_by_ft = {
+				javascript = { "eslint_d" },
 				lua = { "luacheck" },
 				python = { "ruff" },
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
 				svelte = { "eslint_d" },
+				typescript = { "eslint_d" },
 			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {
@@ -41,6 +41,8 @@ return {
 			notify_on_error = false,
 			formatters_by_ft = {
 				bash = { "shfmt" },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
 				css = { "prettierd" },
 				html = { "prettierd" },
 				javascript = { "prettierd" },
