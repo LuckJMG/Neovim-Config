@@ -1,24 +1,32 @@
 # Neovim Config
+
 Personal configuration for neovim, started with [Vim As Your Editor](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) by ThePrimeagen and branched forward.
 
 ## Requirements
+
 - [Neovim](https://neovim.io/) >= 0.11
 - [Git](https://git-scm.com/)
 - A [Nerd Font](https://www.nerdfonts.com/)
 - [xclip](https://github.com/astrand/xclip)
 
 ### Optional
+
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## Install
+
 To install the configuration, clone this repository on `~/.config/nvim`.
+
 ```shell
 git clone https://github.com/LuckJMG/Neovim-Config.git ~/.config/nvim
 ```
+
 Then initialize nvim and wait for lazy.nvim to install the plugins.
 
 ## Structure
+
 Inspired by the [LazyVim](https://www.lazyvim.org/) structure.
+
 - `init.lua`: entry point of the configuration
 - `lua/config/`: neovim lua config files
 - `lua/config/options.lua`: neovim base configuration
@@ -28,11 +36,13 @@ Inspired by the [LazyVim](https://www.lazyvim.org/) structure.
 - `lua/plugins/`: plugin configuration, for more information see [Plugins](#Plugins)
 
 ## Key Mappings
+
 Leader key: `<Space>`
 
 Keymaps intend to follow the Vim grammar, inspired by the talk [Mastering the Vim Language](https://www.youtube.com/watch?v=wlR5gYd6um0) by Chris Toomey.
 
 ### Code
+
 Intelligent actions on the code.
 
 - `<leader>cd`: **[C]**ode **[D]**efinition
@@ -45,11 +55,13 @@ Intelligent actions on the code.
 - `<leader>d`: **[D]**iagnostic
 
 ### Knowledge (`k`)
+
 Documentation and passive information.
 
 - `<leader>k`: **K**now Signature (Signature help)
 
 ### Navigation & Tools (`g`, `f`, `s`)
+
 Movement between projects, files, and tools.
 
 - `-`: Open Parent Directory (Oil)
@@ -58,6 +70,7 @@ Movement between projects, files, and tools.
 - `<leader>sp`: **S**earch **P**roject (Search text / Grep)
 
 ### Harpoon (`m`, `l`)
+
 Quick navigation between frequent files.
 
 - `<leader>m`: **M**ark Buffer
@@ -67,6 +80,7 @@ Quick navigation between frequent files.
 - `<leader>1-9`: Go to file 1-9
 
 ### Clipboard (`g`)
+
 System clipboard interaction using the global operator `g`.
 
 - `gy`: **G**lobal **Y**ank (Copy to system clipboard `"+y`)
@@ -74,6 +88,7 @@ System clipboard interaction using the global operator `g`.
 - `gyaB`: **G**lobal **Y**ank **A**round **B**uffer (Copy file as Markdown block)
 
 ### Basic Movement & Edit
+
 Quality of life improvements.
 
 - `H`: Go to start of line (`^`)
@@ -86,14 +101,17 @@ Quality of life improvements.
 - `<Esc>`: Clear search highlight (`nohlsearch`)
 
 ## Plugins
+
 Tried to use [nvim-mini](https://nvim-mini.org/mini.nvim/) by Evgeni Chasnovski, framework as a base/default.
 
 ### Auto-completion
+
 Configuration file in `lua/plugins/cmp.lua`.
 
 - [blink.nvim](https://github.com/saghen/blink.cmp) as main auto-completion plugin.
 
 ### Coding
+
 Configuration file in `lua/plugins/coding.lua`.
 
 - [conform.nvim](https://github.com/stevearc/conform.nvim) as main formatter.
@@ -104,6 +122,7 @@ Configuration file in `lua/plugins/coding.lua`.
 - [nvim-lint](https://github.com/mfussenegger/nvim-lint) as main linter.
 
 ### LSP
+
 Configuration file in `lua/plugins/lsp.lua`.
 
 - [lazydev.nvim](https://github.com/folke/lazydev.nvim) for developing neovim configurations.
@@ -111,6 +130,7 @@ Configuration file in `lua/plugins/lsp.lua`.
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) as main LSP configuration plugin.
 
 ### Navigation
+
 Configuration file in `lua/plugins/navigation.lua`.
 
 - [harpoon](https://github.com/ThePrimeagen/harpoon) for quick switching between files.
@@ -118,6 +138,7 @@ Configuration file in `lua/plugins/navigation.lua`.
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for quick finding files in any project.
 
 ### Treesitter
+
 Configuration file in `lua/plugins/treesittter.lua`.
 
 - [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects including those in [mini.extra](https://nvim-mini.org/mini.nvim/readmes/mini-extra.html).
@@ -126,6 +147,7 @@ Configuration file in `lua/plugins/treesittter.lua`.
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.
 
 ### UI
+
 Configuration file in `lua/plugins/ui.lua`.
 
 - [everforest-nvim](https://github.com/neanias/everforest-nvim) color main scheme.
@@ -135,5 +157,5 @@ Configuration file in `lua/plugins/ui.lua`.
 - [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
 
 ## Thanks
-To all the developers from neovim and its plugins to make this possible.
 
+To all the developers from neovim and its plugins to make this possible.
