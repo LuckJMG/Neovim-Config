@@ -156,6 +156,15 @@ Configuration file in `lua/plugins/ui.lua`.
 - [mini.icons](https://github.com/nvim-mini/mini.icons) for consistent icons.
 - [noice.nvim](https://github.com/folke/noice.nvim) for a more aesthetic cmdline and notifications.
 
+## TODO
+
+- Design setup following [Calm Design](https://www.calmtech.institute/calm-tech-principles).
+- Update keymaps to be a superset of basic vim motions for standarization.
+- Update plugins in README.
+- Divide configuration by use (C/C++ dev, webdev, shell dev, etc.).
+- Make configuration more minimal.
+- Check [99](https://github.com/ThePrimeagen/99) plugin.
+
 ## Thanks
 
 To all the developers from neovim and its plugins to make this possible.
