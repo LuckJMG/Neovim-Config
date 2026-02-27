@@ -35,6 +35,7 @@ end, { desc = "[Y]ank [a]round [B]uffer" })
 map("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })
 map("n", "U", "<C-r>", { desc = "Redo" })
 map({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
+map({ "n", "i", "x" }, "<F5>", "<Esc><Cmd>silent! update | redraw | !make<CR>", { desc = "Save and run" })
 
 -- Deactivation
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
