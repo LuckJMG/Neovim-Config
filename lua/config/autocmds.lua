@@ -149,6 +149,7 @@ local function guess_indent()
 	end
 end
 
+vim.api.nvim_create_user_command("Indent", guess_indent, { desc = "Detect indentation" })
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	group = vim.api.nvim_create_augroup("AutomaticIndent", { clear = true }),
 	pattern = "*",
