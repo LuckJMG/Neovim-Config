@@ -65,6 +65,18 @@ require("noice").setup({
 
 vim.api.nvim_set_hl(0, "NoiceMini", { bg = "#414B50" })
 
+-- Indentation
+MiniDeps.add("lukas-reineke/indent-blankline.nvim")
+require("ibl").setup({
+	indent = {
+		char = "|",
+		tab_char = "|",
+		priority = 10,
+	},
+	whitespace = { remove_blankline_trail = false },
+	scope = { enabled = false },
+})
+
 -- Context
 MiniDeps.add("nvim-treesitter/nvim-treesitter-context")
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })

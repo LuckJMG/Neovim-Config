@@ -52,6 +52,10 @@ require("blink.cmp").setup({
 MiniDeps.add("windwp/nvim-ts-autotag")
 require("nvim-ts-autotag").setup()
 
+-- Automatic Indent
+MiniDeps.add("NMAC427/guess-indent.nvim")
+require("guess-indent").setup()
+
 -- AutoPairs
 MiniDeps.add("nvim-mini/mini.pairs")
 require("mini.pairs").setup()
