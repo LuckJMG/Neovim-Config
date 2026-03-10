@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = event.buf, silent = true })
+		vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
 	end,
 })
 
@@ -85,11 +85,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
-		map("<leader>cD", code.declaration, "[C]ode [D]eclaration")
-		map("<leader>ca", code.code_action, "[C]ode [A]ction")
-		map("<leader>cr", code.rename, "[C]ode [R]ename")
+		map("<LEADER>cD", code.declaration, "[C]ode [D]eclaration")
+		map("<LEADER>ca", code.code_action, "[C]ode [A]ction")
+		map("<LEADER>cr", code.rename, "[C]ode [R]ename")
 		map("<F2>", code.rename, "[C]ode [R]ename")
-		map("<leader>d", vim.diagnostic.open_float, "[D]iagnostic")
+		map("<LEADER>d", vim.diagnostic.open_float, "[D]iagnostic")
 	end,
 })
 

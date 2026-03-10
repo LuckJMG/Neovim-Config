@@ -31,18 +31,18 @@ end, { desc = "[Y]ank [a]round [B]uffer" })
 
 -- File
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
-vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })
-vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
-vim.keymap.set("n", "<F5>", "<Cmd>silent! update | redraw | !just<CR>", { desc = "Execute command runner" })
+vim.keymap.set("n", "<C-s>", "<CMD>silent! update | redraw<CR>", { desc = "Save" })
+vim.keymap.set({ "i", "x" }, "<C-s>", "<ESC><CMD>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
+vim.keymap.set("n", "<F5>", "<CMD>silent! update | redraw | !just<CR>", { desc = "Execute command runner" })
 vim.keymap.set(
 	{ "i", "x" },
 	"<F5>",
-	"<Esc><Cmd>silent! update | redraw | !just<CR>",
+	"<ESC><CMD>silent! update | redraw | !just<CR>",
 	{ desc = "Execute command runner and got ot Normal mode" }
 )
 
 -- Deactivation
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
-vim.keymap.set("n", "<F1>", "<Nop>", { desc = "Deactivate Help" })
-vim.keymap.set("n", "Q", "<Nop>", { desc = "Deactivate Ex mode" })
-vim.keymap.set("n", "q", "<Nop>", { desc = "Deactivate Macros" })
+vim.keymap.set("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
+vim.keymap.set("n", "<F1>", "<NOP>", { desc = "Deactivate Help" })
+vim.keymap.set("n", "Q", "<NOP>", { desc = "Deactivate Ex mode" })
+vim.keymap.set("n", "q", "<NOP>", { desc = "Deactivate Macros" })

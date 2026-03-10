@@ -50,10 +50,10 @@ Telescope.setup({
 pcall(Telescope.load_extension, "fzf")
 pcall(Telescope.load_extension, "ui-select")
 
-vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "[S]earch [K]eymaps" })
+vim.keymap.set("n", "<LEADER>sf", "<CMD>Telescope find_files<CR>", { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<LEADER>sg", "<CMD>Telescope live_grep<CR>", { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<LEADER>sh", "<CMD>Telescope help_tags<CR>", { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<LEADER>sk", "<CMD>Telescope keymaps<CR>", { desc = "[S]earch [K]eymaps" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("TelescopeLspConfig", { clear = true }),
@@ -63,10 +63,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
-		map("<leader>cR", telescope.lsp_references, "[C]ode [R]eferences")
-		map("<leader>cd", telescope.lsp_definitions, "[C]ode [D]efinition")
-		map("<leader>ci", telescope.lsp_implementations, "[C]ode [I]mplementation")
-		map("<leader>ct", telescope.lsp_type_definitions, "[C]ode [T]ype Definition")
+		map("<LEADER>cR", telescope.lsp_references, "[C]ode [R]eferences")
+		map("<LEADER>cd", telescope.lsp_definitions, "[C]ode [D]efinition")
+		map("<LEADER>ci", telescope.lsp_implementations, "[C]ode [I]mplementation")
+		map("<LEADER>ct", telescope.lsp_type_definitions, "[C]ode [T]ype Definition")
 	end,
 })
 
@@ -81,14 +81,14 @@ Harpoon:setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>m", function()
+vim.keymap.set("n", "<LEADER>m", function()
 	Harpoon:list():add()
 end, { desc = "[M]ark buffer" })
-vim.keymap.set("n", "<leader>M", function()
+vim.keymap.set("n", "<LEADER>M", function()
 	Harpoon.ui:toggle_quick_menu(Harpoon:list())
 end, { desc = "[M]arked buffers list" })
 for i = 1, 9 do
-	vim.keymap.set("n", "<leader>" .. i, function()
+	vim.keymap.set("n", "<LEADER>" .. i, function()
 		Harpoon:list():select(i)
 	end, { desc = "Harpoon to file [" .. i .. "]" })
 end
