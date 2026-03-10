@@ -1,5 +1,31 @@
-if vim.loader then
-	vim.loader.enable()
+-- DEPS
+-- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
+local path_package = vim.fn.stdpath("data") .. "/site/"
+local mini_path = path_package .. "pack/deps/start/mini.nvim"
+if not vim.loop.fs_stat(mini_path) then
+	vim.cmd('echo "Installing [`mini.nvim`](../doc/mini-nvim.qmd#mini.nvim)" | redraw')
+	local clone_cmd = {
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/nvim-mini/mini.nvim",
+		mini_path,
+	}
+	vim.fn.system(clone_cmd)
+	vim.cmd("packadd mini.nvim | helptags ALL")
+	vim.cmd('echo "Installed [`mini.nvim`](../doc/mini-nvim.qmd#mini.nvim)" | redraw')
 end
 
-require("config.lazy")
+-- Set up 'mini.deps' (customize to your liking)
+require("mini.deps").setup({ path = { package = path_package } })
+
+-- BASE
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+
+-- PLUGINS
+require("plugins.langs")
+require("plugins.ui")
+require("plugins.navigation")
+require("plugins.coding")

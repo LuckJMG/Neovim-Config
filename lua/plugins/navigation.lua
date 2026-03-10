@@ -1,129 +1,121 @@
-return {
-	{
-		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
-		opts = {
-			skip_confirm_for_simple_edits = true,
-			float = { border = "rounded" },
-			confirmation = { border = "rounded" },
-			view_options = {
-				show_hidden = true,
-				is_always_hidden = function(name, _)
-					if name:sub(-#"-lock.json") == "-lock.json" then
-						return true
-					end
+-- Oil
+MiniDeps.add({
+	source = "stevearc/oil.nvim",
+	depends = { "nvim-mini/mini.icons" },
+})
 
-					local always_hidden = { "..", ".git" }
-					for _, value in ipairs(always_hidden) do
-						if value == name then
-							return true
-						end
-					end
+require("oil").setup({
+	skip_confirm_for_simple_edits = true,
+})
 
-					return false
-				end,
-			},
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Telescope
+MiniDeps.add({
+	source = "nvim-telescope/telescope.nvim",
+	depends = {
+		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-fzf-native.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
+	},
+})
+
+local Telescope = require("telescope")
+Telescope.setup({
+	defaults = {
+		file_ignore_patterns = { "node_modules", ".git/", ".venv/" },
+	},
+	pickers = {
+		find_files = {
+			previewer = false,
+			theme = "dropdown",
 		},
-		dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-		lazy = false,
-		keys = {
-			{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
+		live_grep = {
+			theme = "dropdown",
+		},
+		help_tags = {
+			theme = "dropdown",
+		},
+		keymaps = {
+			theme = "dropdown",
 		},
 	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "nvim-telescope/telescope-ui-select.nvim" },
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_cursor({}),
 		},
-		keys = {
-			{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "[S]earch [F]iles" },
-			{ "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "[S]earch by [G]rep" },
-			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "[S]earch [H]elp" },
-			{ "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "[S]earch current [W]ord" },
-			{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "[S]earch [K]eymaps" },
-			{ "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "[/] Search in current buffer" },
-		},
-		opts = {
-			defaults = {
-				file_ignore_patterns = { "node_modules", ".git/", ".venv/" },
-			},
-			pickers = {
-				find_files = {
-					hidden = true,
-				},
-			},
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_cursor({}),
-				},
-			},
-		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, require("telescope.themes").get_dropdown({}))
-			telescope.setup(opts)
-
-			pcall(telescope.load_extension, "fzf")
-			pcall(telescope.load_extension, "ui-select")
-		end,
 	},
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			settings = {
-				save_on_toggle = true,
-				sync_on_ui_close = true,
-			},
-		},
-		keys = function()
-			local harpoon = require("harpoon")
-			local keys = {
-				{
-					"<leader>m",
-					function()
-						harpoon:list():add()
-					end,
-					desc = "[M]ark buffer",
-				},
-				{
-					"<leader>M",
-					function()
-						harpoon.ui:toggle_quick_menu(harpoon:list())
-					end,
-					desc = "[M]arked buffers list",
-				},
-				{
-					"<C-n>",
-					function()
-						harpoon:list():next({ ui_nav_wrap = true })
-					end,
-					desc = "Harpoon to next file",
-				},
-				{
-					"<C-p>",
-					function()
-						harpoon:list():prev({ ui_nav_wrap = true })
-					end,
-					desc = "Harpoon to prev file",
-				},
-			}
+})
 
-			for i = 1, 9 do
-				table.insert(keys, {
-					"<leader>" .. i,
-					function()
-						harpoon:list():select(i)
-					end,
-					desc = "Harpoon to file [" .. i .. "]",
-				})
-			end
+pcall(Telescope.load_extension, "fzf")
+pcall(Telescope.load_extension, "ui-select")
 
-			return keys
-		end,
+vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "[S]earch [K]eymaps" })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("TelescopeLspConfig", { clear = true }),
+	callback = function(event)
+		local telescope = require("telescope.builtin")
+		local function map(keys, func, desc)
+			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+		end
+
+		map("<leader>cR", telescope.lsp_references, "[C]ode [R]eferences")
+		map("<leader>cd", telescope.lsp_definitions, "[C]ode [D]efinition")
+		map("<leader>ci", telescope.lsp_implementations, "[C]ode [I]mplementation")
+		map("<leader>ct", telescope.lsp_type_definitions, "[C]ode [T]ype Definition")
+	end,
+})
+
+-- Harpoon
+MiniDeps.add({ source = "ThePrimeagen/harpoon", checkout = "harpoon2", depends = { "nvim-lua/plenary.nvim" } })
+
+local Harpoon = require("harpoon")
+Harpoon:setup({
+	settings = {
+		save_on_toggle = true,
+		sync_on_ui_close = true,
 	},
-}
+})
+
+vim.keymap.set("n", "<leader>m", function()
+	Harpoon:list():add()
+end, { desc = "[M]ark buffer" })
+vim.keymap.set("n", "<leader>M", function()
+	Harpoon.ui:toggle_quick_menu(Harpoon:list())
+end, { desc = "[M]arked buffers list" })
+for i = 1, 9 do
+	vim.keymap.set("n", "<leader>" .. i, function()
+		Harpoon:list():select(i)
+	end, { desc = "Harpoon to file [" .. i .. "]" })
+end
+
+local function harpoon_component()
+	local list = Harpoon:list()
+	local length = list:length()
+
+	if length == 0 then
+		return ""
+	end
+
+	local marks = {}
+	for i = 1, length do
+		local item = list:get(i)
+
+		if item ~= nil and item.value ~= nil and item.value ~= "" then
+			local filename = vim.fn.fnamemodify(item.value, ":t")
+			table.insert(marks, string.format("%d %s", i, filename))
+		end
+	end
+
+	if #marks == 0 then
+		return ""
+	end
+
+	return table.concat(marks, " | ")
+end
+
+require("lualine").setup({ sections = { lualine_c = { harpoon_component } } })

@@ -1,86 +1,70 @@
-local global, options = vim.g, vim.o
+-- Basic
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 8
 
--- General Settings
-global.mapleader = " "
-options.mouse = ""
-options.confirm = true
-options.updatetime = 300
+-- Indentation
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
 
--- Backup & Undo
-options.undofile = true
-options.swapfile = false
-options.backup = false
-options.writebackup = false
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.infercase = true
 
--- UI & Appearance
-options.termguicolors = true
-options.showmode = false
-options.number = true
-options.relativenumber = true
-options.signcolumn = "yes"
-options.ruler = false
-options.cursorline = true
-options.colorcolumn = "81"
-options.fillchars = "eob: "
-
--- List Chars
-options.list = true
+-- Visual
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "101"
+vim.opt.showmatch = true
+vim.opt.matchtime = 2
+vim.opt.completeopt = "menuone,noselect"
+vim.opt.showmode = false
+vim.opt.pumheight = 10
+vim.opt.pumblend = 10
+vim.opt.ruler = false
+vim.opt.fillchars = "eob: "
+vim.opt.list = true
 vim.opt.listchars = {
 	tab = "| ",
 	leadmultispace = "|   ",
-	trail = "⋅",
-	nbsp = "␣",
+	trail = "·",
+	nbsp = "¬",
 }
+vim.opt.winborder = "rounded"
 
--- Window & Buffer Handling
-options.wrap = false
-options.linebreak = true
-options.breakindent = true
-options.scrolloff = 10
-options.foldcolumn = "1"
+-- File Handling
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 500
+
+-- Behavior Settings
+vim.opt.iskeyword:append("-")
 vim.opt.shortmess:append("WcC")
+vim.opt.mouse = ""
+vim.opt.confirm = true
+vim.opt.formatoptions = "qjl1"
 
--- Indentation
-options.tabstop = 4
-options.shiftwidth = 4
-options.softtabstop = 4
-options.expandtab = false
-options.autoindent = true
-options.smartindent = true
-
--- Search & Editing
-options.ignorecase = true
-options.smartcase = true
-options.infercase = true
-options.incsearch = true
-options.completeopt = "menuone,noselect"
-options.formatoptions = "qjl1"
-
--- Clipboard
-if vim.fn.has("wsl") == 1 then
-	global.clipboard = {
-		name = "WslClipboard",
-		copy = {
-			["+"] = "clip.exe",
-			["*"] = "clip.exe",
+-- Diagnostics
+vim.diagnostic.config({
+	severity_sort = true,
+	float = { border = "rounded", source = "if_many" },
+	update_in_insert = false,
+	signs = {
+		text = {
+			ERROR = "󰅚 ",
+			WARN = "󰀪 ",
+			HINT = "󰌶 ",
+			INFO = " ",
 		},
-		paste = {
-			["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-			["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		},
-		cache_enabled = 0,
-	}
-else
-	global.clipboard = {
-		name = "xclip",
-		copy = {
-			["+"] = "xclip -selection clipboard",
-			["*"] = "xclip -selection primary",
-		},
-		paste = {
-			["+"] = "xclip -selection clipboard -o",
-			["*"] = "xclip -selection primary -o",
-		},
-		cache_enabled = 1,
-	}
-end
+	},
+})
