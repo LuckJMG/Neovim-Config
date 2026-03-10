@@ -1,6 +1,6 @@
 # Neovim Config
 
-Personal configuration for neovim, started with [Vim As Your Editor](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) by ThePrimeagen and branched forward.
+Personal configuration for neovim, started with [Vim As Your Editor](https://www.youtube.com/playlist?list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R) by ThePrimeagen and based in [You Don't Need Plugins: A NeoVim Config for Minimalists](https://www.youtube.com/watch?v=skW3clVG5Fo).
 
 ## Requirements
 
@@ -129,7 +129,7 @@ Configuration file in `lua/plugins/coding.lua`.
 
 ## Guidelines
 
-1. One full review per semester, between reviews only major fixes will be updated, other minor things to the TODO for the next review.
+1. One full review per semester, between reviews only major bugs will be fixed, other minor things will be added to the TODO for the next review.
 2. Minimize external dependencies.
 3. Don't steal focus of the developer.
 4. Be an extension of vim, not a full replacement.
