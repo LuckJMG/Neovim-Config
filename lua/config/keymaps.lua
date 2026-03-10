@@ -33,6 +33,13 @@ end, { desc = "[Y]ank [a]round [B]uffer" })
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" })
 vim.keymap.set("n", "<C-S>", "<Cmd>silent! update | redraw<CR>", { desc = "Save" })
 vim.keymap.set({ "i", "x" }, "<C-S>", "<Esc><Cmd>silent! update | redraw<CR>", { desc = "Save and go to Normal mode" })
+vim.keymap.set("n", "<F5>", "<Cmd>silent! update | redraw | !just<CR>", { desc = "Execute command runner" })
+vim.keymap.set(
+	{ "i", "x" },
+	"<F5>",
+	"<Esc><Cmd>silent! update | redraw | !just<CR>",
+	{ desc = "Execute command runner and got ot Normal mode" }
+)
 
 -- Deactivation
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear hlsearch" })
