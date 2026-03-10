@@ -98,5 +98,4 @@ require("copilot").setup({
 
 vim.keymap.set("n", "<LEADER>a", function()
 	require("copilot.suggestion").toggle_auto_trigger()
-	vim.notify("Copilot Toggled")
 end, { desc = "[A]I Toggle" })
