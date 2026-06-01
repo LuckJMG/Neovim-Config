@@ -1,6 +1,6 @@
 -- Theme
 vim.pack.add({ "https://github.com/neanias/everforest-nvim" })
-vim.cmd.colorscheme("everforest")
+require("everforest").load()
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#272E33" })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#272E33" })
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
@@ -16,7 +16,7 @@ require("mini.icons").mock_nvim_web_devicons()
 
 require("lualine").setup({
 	options = {
-		theme = "everforest",
+		theme = "auto",
 		component_separators = "",
 		section_separators = "",
 	},
@@ -65,7 +65,7 @@ require("noice").setup({
 vim.api.nvim_set_hl(0, "NoiceMini", { bg = "#414B50" })
 
 -- Indentation
-vim.pack.add("https://github.com/lukas-reineke/indent-blankline.nvim")
+vim.pack.add({ "https://github.com/lukas-reineke/indent-blankline.nvim" })
 require("ibl").setup({
 	indent = {
 		char = "|",
@@ -77,5 +77,5 @@ require("ibl").setup({
 })
 
 -- Context
-vim.pack.add("https://github.com/nvim-treesitter/nvim-treesitter-context")
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter-context" })
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })
