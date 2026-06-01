@@ -1,5 +1,5 @@
 -- Theme
-MiniDeps.add("neanias/everforest-nvim")
+vim.pack.add({ "https://github.com/neanias/everforest-nvim" })
 vim.cmd.colorscheme("everforest")
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#272E33" })
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#272E33" })
@@ -7,11 +7,10 @@ vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 
 -- Statusline
-MiniDeps.add({
-	source = "nvim-lualine/lualine.nvim",
-	depends = { "nvim-mini/mini.icons" },
+vim.pack.add({
+	"https://github.com/nvim-mini/mini.icons",
+	"https://github.com/nvim-lualine/lualine.nvim",
 })
-
 require("mini.icons").setup()
 require("mini.icons").mock_nvim_web_devicons()
 
@@ -31,9 +30,9 @@ require("lualine").setup({
 })
 
 -- Better CMD
-MiniDeps.add({
-	source = "folke/noice.nvim",
-	depends = { "MunifTanjim/nui.nvim" },
+vim.pack.add({
+	"https://github.com/MunifTanjim/nui.nvim",
+	"https://github.com/folke/noice.nvim",
 })
 
 require("noice").setup({
@@ -66,7 +65,7 @@ require("noice").setup({
 vim.api.nvim_set_hl(0, "NoiceMini", { bg = "#414B50" })
 
 -- Indentation
-MiniDeps.add("lukas-reineke/indent-blankline.nvim")
+vim.pack.add("https://github.com/lukas-reineke/indent-blankline.nvim")
 require("ibl").setup({
 	indent = {
 		char = "|",
@@ -78,5 +77,5 @@ require("ibl").setup({
 })
 
 -- Context
-MiniDeps.add("nvim-treesitter/nvim-treesitter-context")
+vim.pack.add("https://github.com/nvim-treesitter/nvim-treesitter-context")
 require("treesitter-context").setup({ mode = "cursor", max_lines = 3 })

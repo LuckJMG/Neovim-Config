@@ -1,7 +1,21 @@
 local langs = {
+	python = {
+		lsp = "ruff",
+		formatter = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+	},
+
+	-- Config/Docs
 	lua = {
 		lsp = "lua_ls",
 		formatter = { "stylua" },
+	},
+	json = {
+		lsp = "",
+		formatter = { "oxfmt" },
+	},
+	markdown = {
+		lsp = "",
+		formatter = { "oxfmt" },
 	},
 
 	-- C/C++
@@ -32,33 +46,31 @@ local langs = {
 		formatter = { "oxfmt" },
 	},
 	svelte = {
-		lsp = "svelte-language-server",
+		lsp = "svelte",
 		formatter = { "prettierd" },
-	},
-	python = {
-		lsp = "ruff",
-		formatter = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 	},
 }
 
 -- Setup LSP
-MiniDeps.add({
-	source = "neovim/nvim-lspconfig",
-	depends = { "mason-org/mason.nvim" },
-})
+vim.pack.add({ "https://github.com/mason-org/mason.nvim", "https://github.com/neovim/nvim-lspconfig" })
 require("mason").setup()
+vim.lsp.enable("tailwindcss")
 
 -- Main configuration loop
 local lang_list = {}
 local formatters = {}
 for lang, config in pairs(langs) do
 	table.insert(lang_list, lang)
-	vim.lsp.enable(config.lsp)
+
+	if config.lsp ~= "" then
+		vim.lsp.enable(config.lsp)
+	end
+
 	formatters[lang] = config.formatter
 end
 
 -- Setup treesitter
-MiniDeps.add("nvim-treesitter/nvim-treesitter")
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
 
 local TreeSitter = require("nvim-treesitter")
 TreeSitter.setup()
@@ -72,7 +84,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Setup formatters
-MiniDeps.add("stevearc/conform.nvim")
+vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 require("conform").setup({
 	notify_on_error = false,

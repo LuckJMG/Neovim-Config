@@ -1,7 +1,7 @@
 -- Oil
-MiniDeps.add({
-	source = "stevearc/oil.nvim",
-	depends = { "nvim-mini/mini.icons" },
+vim.pack.add({
+	"https://github.com/nvim-mini/mini.icons",
+	"https://github.com/stevearc/oil.nvim",
 })
 
 require("oil").setup({
@@ -11,13 +11,11 @@ require("oil").setup({
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Telescope
-MiniDeps.add({
-	source = "nvim-telescope/telescope.nvim",
-	depends = {
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope-fzf-native.nvim",
-		"nvim-telescope/telescope-ui-select.nvim",
-	},
+vim.pack.add({
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
+	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
+	"https://github.com/nvim-telescope/telescope.nvim",
 })
 
 local Telescope = require("telescope")
@@ -71,7 +69,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Harpoon
-MiniDeps.add({ source = "ThePrimeagen/harpoon", checkout = "harpoon2", depends = { "nvim-lua/plenary.nvim" } })
+vim.pack.add({
+	"https://github.com/nvim-lua/plenary.nvim",
+	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
+})
 
 local Harpoon = require("harpoon")
 Harpoon:setup({

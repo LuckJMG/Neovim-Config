@@ -1,6 +1,8 @@
 -- Completion
-MiniDeps.add({ source = "saghen/blink.cmp", depends = { "rafamadriz/friendly-snippets" }, checkout = "v1.9.1" })
-require("blink.cmp").setup({
+vim.pack.add({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
+local cmp = require("blink.cmp")
+cmp.build():pwait()
+cmp.setup({
 	appearance = { nerd_font_variant = "mono" },
 	completion = {
 		accept = { auto_brackets = { enabled = true } },
@@ -49,19 +51,19 @@ require("blink.cmp").setup({
 })
 
 -- AutoTags
-MiniDeps.add("windwp/nvim-ts-autotag")
+vim.pack.add({ "https://github.com/windwp/nvim-ts-autotag" })
 require("nvim-ts-autotag").setup()
 
 -- Automatic Indent
-MiniDeps.add("NMAC427/guess-indent.nvim")
+vim.pack.add({ "https://github.com/NMAC427/guess-indent.nvim" })
 require("guess-indent").setup()
 
 -- AutoPairs
-MiniDeps.add("nvim-mini/mini.pairs")
+vim.pack.add({ "https://github.com/nvim-mini/mini.pairs" })
 require("mini.pairs").setup()
 
 -- Better Text Objects
-MiniDeps.add("nvim-mini/mini.ai")
+vim.pack.add({ "https://github.com/nvim-mini/mini.ai" })
 require("mini.ai").setup({
 	custom_textobjects = {
 		-- Buffer
@@ -77,11 +79,11 @@ require("mini.ai").setup({
 })
 
 -- Better Comments
-MiniDeps.add("nvim-mini/mini.comment")
+vim.pack.add({ "https://github.com/nvim-mini/mini.comment" })
 require("mini.comment").setup()
 
 -- Copilot
-MiniDeps.add("zbirenbaum/copilot.lua")
+vim.pack.add({ "https://github.com/zbirenbaum/copilot.lua" })
 require("copilot").setup({
 	suggestion = {
 		enabled = true,
