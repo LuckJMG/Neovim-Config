@@ -16,7 +16,7 @@ To install the configuration, clone this repository on `~/.config/nvim`.
 git clone https://github.com/LuckJMG/Neovim-Config.git ~/.config/nvim
 ```
 
-Then initialize nvim and wait for lazy.nvim to install the plugins.
+Then initialize nvim and wait for vim.pack to install the plugins.
 
 ## Structure
 
@@ -59,6 +59,7 @@ Intelligent actions on the code.
 - `<LEADER>cD`: **[C]**ode **[D]**eclaration
 - `<LEADER>cR`: **[C]**ode **[R]**eferences
 - `<LEADER>ci`: **[C]**ode **[I]**mplementation
+- `<LEADER>ct`: **[C]**ode **[T]**ype Definition
 - `<LEADER>ca`: **[C]**ode **[A]**ction
 - `<LEADER>cr` or `<F2>`: **[C]**ode **[R]**ename
 - `<LEADER>cf`: **[C]**ode **[F]**ormat
@@ -79,7 +80,7 @@ Movement between projects, files, and tools.
 
 ## Plugins
 
-Tried to use [nvim-mini](https://nvim-mini.org/mini.nvim/) by Evgeni Chasnovski, framework as a base/default. [mini.deps](https://nvim-mini.org/mini.nvim/readmes/mini-deps) is the package manager for easy transition to nvim-0.12.
+Tried to use [nvim-mini](https://nvim-mini.org/mini.nvim/) by Evgeni Chasnovski, framework as a base/default. Plugins are managed with the native [vim.pack](https://neovim.io/blog/2025/07/free-the-soul/) API.
 
 ### Languages
 
@@ -114,7 +115,6 @@ Configuration file in `lua/plugins/navigation.lua`.
 Configuration file in `lua/plugins/coding.lua`.
 
 - [blink.nvim](https://github.com/saghen/blink.cmp) as main auto-completion plugin.
-- [conform.nvim](https://github.com/stevearc/conform.nvim) as main formatter.
 - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) as main AI smart completion.
 - [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim) for automatic indentation detection.
 - [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects.
