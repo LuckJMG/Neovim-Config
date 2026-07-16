@@ -3,6 +3,10 @@ local langs = {
 		lsp = "ruff",
 		formatter = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 	},
+	rust = {
+		lsp = "rust-analyzer",
+		formatter = { "rustfmt" },
+	},
 
 	-- Config/Docs
 	lua = {
@@ -10,8 +14,12 @@ local langs = {
 		formatter = { "stylua" },
 	},
 	json = {
-		lsp = "",
-		formatter = { "oxfmt" },
+		lsp = "biome",
+		formatter = { "biome" },
+	},
+	jsonc = {
+		lsp = "biome",
+		formatter = { "biome" },
 	},
 	markdown = {
 		lsp = "",
@@ -31,23 +39,23 @@ local langs = {
 	-- WebDev
 	html = {
 		lsp = "html-lsp",
-		formatter = { "oxfmt" },
+		formatter = { "biome" },
 	},
 	css = {
 		lsp = "css-lsp",
-		formatter = { "oxfmt" },
+		formatter = { "biome" },
 	},
 	javascript = {
 		lsp = "vtsls",
-		formatter = { "oxfmt" },
+		formatter = { "biome" },
 	},
 	typescript = {
 		lsp = "vtsls",
-		formatter = { "oxfmt" },
+		formatter = { "biome" },
 	},
 	svelte = {
 		lsp = "svelte",
-		formatter = { "prettierd" },
+		formatter = { "biome" },
 	},
 }
 
