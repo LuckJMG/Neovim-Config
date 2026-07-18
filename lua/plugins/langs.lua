@@ -17,10 +17,6 @@ local langs = {
 		lsp = "biome",
 		formatter = { "biome" },
 	},
-	jsonc = {
-		lsp = "biome",
-		formatter = { "biome" },
-	},
 	markdown = {
 		lsp = "",
 		formatter = { "oxfmt" },
