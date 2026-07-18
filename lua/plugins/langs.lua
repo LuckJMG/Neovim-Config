@@ -4,7 +4,7 @@ local langs = {
 		formatter = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 	},
 	rust = {
-		lsp = "rust-analyzer",
+		lsp = "rust_analyzer",
 		formatter = { "rustfmt" },
 	},
 
