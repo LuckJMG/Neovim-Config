@@ -107,7 +107,8 @@ Configuration file in `lua/plugins/ui.lua`.
 Configuration file in `lua/plugins/navigation.lua`.
 
 - [harpoon](https://github.com/ThePrimeagen/harpoon) for quick switching between files.
-- [oil.nvim](https://github.com/stevearc/oil.nvim) for file tree managment.
+- [oil.nvim](https://github.com/stevearc/oil.nvim) for file tree management.
+- [oil-git](https://github.com/malewicz1337/oil-git.nvim) for git file status on oil.
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for quick finding files in any project.
 
 ### Coding
@@ -118,6 +119,7 @@ Configuration file in `lua/plugins/coding.lua`.
 - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) as main AI smart completion.
 - [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim) for automatic indentation detection.
 - [mini.ai](https://nvim-mini.org/mini.nvim/readmes/mini-ai.html) for more text objects.
+- [mini.diff](https://nvim-mini.org/mini.nvim/readmes/mini-diff.html) for diff visualization.
 - [mini.comment](https://nvim-mini.org/mini.nvim/readmes/mini-comment.html) for comment action and text object.
 - [mini.pairs](https://nvim-mini.org/mini.nvim/readmes/mini-pairs.html) for auto pairing.
 - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) for intelligent tag editing.

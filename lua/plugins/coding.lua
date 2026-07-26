@@ -101,3 +101,7 @@ require("copilot").setup({
 vim.keymap.set("n", "<LEADER>a", function()
 	require("copilot.suggestion").toggle_auto_trigger()
 end, { desc = "[A]I Toggle" })
+
+-- Git Diff
+vim.pack.add({ "https://github.com/nvim-mini/mini.diff" })
+require("mini.diff").setup()

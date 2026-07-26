@@ -2,6 +2,7 @@
 vim.pack.add({
 	"https://github.com/nvim-mini/mini.icons",
 	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/malewicz1337/oil-git.nvim",
 })
 
 require("oil").setup({
