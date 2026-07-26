@@ -17,10 +17,6 @@ local langs = {
 		lsp = "biome",
 		formatter = { "biome" },
 	},
-	markdown = {
-		lsp = "",
-		formatter = { "oxfmt" },
-	},
 
 	-- C/C++
 	c = {
