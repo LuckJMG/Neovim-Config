@@ -7,6 +7,10 @@ local langs = {
 		lsp = "rust_analyzer",
 		formatter = { "rustfmt" },
 	},
+	odin = {
+		lsp = "ols",
+		formatter = { "odinfmt" },
+	},
 
 	-- Config/Docs
 	lua = {
